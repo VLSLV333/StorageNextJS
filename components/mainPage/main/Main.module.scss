@@ -1,5 +1,8 @@
 .main {
   padding-bottom: 5rem;
+  & a {
+    text-decoration: none;
+  }
 }
 
 .section {
@@ -112,14 +115,14 @@
     border: 1px solid rgb(217, 219, 221);
   }
 
-  & input:focus+span,
-  input:not(:placeholder-shown)+span {
+  & input:focus + span,
+  input:not(:placeholder-shown) + span {
     opacity: 1;
     transform: scale(0.75) translateY(-45%) translateX(-10px);
   }
 
-  & input:focus+span,
-  input:not(:-ms-input-placeholder)+span {
+  & input:focus + span,
+  input:not(:-ms-input-placeholder) + span {
     opacity: 1;
     transform: scale(0.75) translateY(-100%) translateX(-30px);
   }
