@@ -1,0 +1,135 @@
+.main {
+  padding-bottom: 5rem;
+}
+
+.section {
+  min-height: 425px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url('../../../images/mainPhoto/main.webp');
+  display: grid;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.h1 {
+  margin: auto;
+  color: white;
+  line-height: 1.7;
+}
+
+.green {
+  color: #7ed957;
+  font-size: 3rem;
+  line-height: 0.1;
+}
+
+.cardMain {
+  width: 90%;
+  margin: -7rem auto 3rem;
+}
+
+.lightPart {
+  padding: 1.5rem 0;
+  background: white;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom: 1px solid rgb(239, 238, 233);
+  position: relative;
+  z-index: 1;
+
+  & .visible {
+    line-height: 2;
+    padding-top: 0;
+    display: flex;
+    justify-content: space-between;
+
+    & .vectorText {
+      display: flex;
+      gap: 0.625rem;
+    }
+
+    & button {
+      width: calc(100% - 166px);
+      height: '36px';
+    }
+  }
+
+  & .hidden {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    position: absolute;
+    width: 100%;
+    background: white;
+    box-shadow: 0px 5px 5px rgb(207, 207, 207);
+
+    & .lastH2 {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  & h2 {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 0.9rem;
+    padding: 1.5rem 0 0 1.5rem;
+  }
+}
+
+.darkPart {
+  padding: 1.5rem 1rem;
+  background: rgb(244, 243, 240);
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  position: relative;
+  box-shadow: 0px 5px 50px rgb(207, 207, 207);
+
+  & label {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    z-index: 0;
+  }
+
+  & span {
+    padding: 10px;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    transition: 0.2s;
+    transition-timing-function: ease;
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+    opacity: 0.5;
+  }
+
+  & input {
+    outline: none;
+    width: 100%;
+    padding: 2rem 0.8rem 0.7rem;
+    border-radius: 5px;
+    border: 1px solid rgb(217, 219, 221);
+  }
+
+  & input:focus+span,
+  input:not(:placeholder-shown)+span {
+    opacity: 1;
+    transform: scale(0.75) translateY(-45%) translateX(-10px);
+  }
+
+  & input:focus+span,
+  input:not(:-ms-input-placeholder)+span {
+    opacity: 1;
+    transform: scale(0.75) translateY(-100%) translateX(-30px);
+  }
+
+  & button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 1.9rem;
+    bottom: 2.2rem;
+    background-color: transparent;
+  }
+}
