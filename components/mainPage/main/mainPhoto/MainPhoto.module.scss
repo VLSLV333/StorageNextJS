@@ -1,0 +1,21 @@
+.section {
+    min-height: 425px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+        url('../../../../images/mainPhoto/main.webp');
+    display: grid;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.h1 {
+    margin: auto;
+    color: white;
+    line-height: 1.7;
+}
+
+.green {
+    color: #7ed957;
+    font-size: 3rem;
+    line-height: 0.1;
+}

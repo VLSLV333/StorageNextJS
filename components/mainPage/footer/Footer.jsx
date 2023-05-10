@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className={style.foot}>
       <section>
         <h2>Контакти</h2>
-        <p>380632148704</p>
+        <p>(063) 214-87-04</p>
       </section>
       <section>
         <h2>Усі об&apos;єкти</h2>

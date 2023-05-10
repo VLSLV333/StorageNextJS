@@ -27,7 +27,6 @@ function Header() {
           <li>
             <a href="./">
               <Logo />
-              {/* ПРИМАВЕСТ */}
             </a>
           </li>
           <li>

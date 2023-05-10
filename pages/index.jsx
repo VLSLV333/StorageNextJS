@@ -1,8 +1,14 @@
+
+
 import Head from 'next/head';
 import Header from '../components/mainPage/header/Header';
 import Main from '../components/mainPage/main/Main';
 import Footer from '../components/mainPage/footer/Footer';
 
+import PageBlur from '../components/wholePageBlur/PageBlur';
+import ModalMeinMenu from '../components/modalMainMenu/ModalMainMenu';
+import ModalFind from '../components/modalFind/ModalFind';
+import ModalPhone from '../components/modalPhone/ModalPhone';
 
 export default function Home() {
   return (
@@ -19,6 +25,10 @@ export default function Home() {
       <Header />
       <Main />
       <Footer />
+      {/* <PageBlur /> */}
+      {/* <ModalMeinMenu /> */}
+      {/* <ModalFind /> */}
+      {/* <ModalPhone /> */}
     </>
   );
 }

@@ -8,7 +8,7 @@ function Logo() {
       height="50"
       preserveAspectRatio="xMidYMid meet"
       version="1.0"
-      style={{position:'relative', right:'12%'}}
+      style={{position:'relative', right:'9%'}}
     >
       <defs>
         <g />

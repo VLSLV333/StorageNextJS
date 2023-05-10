@@ -1,6 +1,6 @@
 .nav {
   min-height: 55px;
-  padding: 0.5rem 1.5rem 0;
+  padding: 0.5rem  1rem 0 0.5rem;
 }
 
 .ul {
@@ -8,11 +8,20 @@
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+
+  & button {
+    width: 44px;
+    height: 44px;
+  }
+
+  & button:hover {
+    background-color: #7ed957;
+    border-radius: 50px;
+  }
 }
 
 .nestedUl {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 1rem;
 }
