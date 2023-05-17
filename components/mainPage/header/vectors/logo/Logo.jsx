@@ -1,3 +1,5 @@
+import style from "./Logo.module.scss";
+
 function Logo() {
   return (
     <svg
@@ -8,7 +10,7 @@ function Logo() {
       height="50"
       preserveAspectRatio="xMidYMid meet"
       version="1.0"
-      style={{position:'relative', right:'9%'}}
+      className={style.logo}
     >
       <defs>
         <g />

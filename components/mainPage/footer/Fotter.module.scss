@@ -1,8 +1,12 @@
 .foot {
   background-color: #393939;
-  color: white;
   padding: 1.5rem;
   min-height: 20vh;
+  display: grid;
+}
+
+.footContainer {
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,7 +14,10 @@
     font-size: 1.3rem;
     margin-bottom: 0.7rem;
   }
+  & p {
+    color: #7ed957;
+  }
   & a {
-    color: white;
+    color: #7ed957;
   }
 }
