@@ -1,10 +1,11 @@
 .modal {
     position: absolute;
     top: 60px;
+    right: 20px;
     z-index: 4;
     background-color: white;
-    width: 324px;
-    margin: 1rem 0.5rem 1rem 1.5rem;
+    max-width: 324px;
+    margin: 1rem 0 1rem 1.5rem;
     padding: 1rem 1.5rem;
     border-radius: 4px 16px 16px 16px;
     box-shadow: 0px 5px 30px rgb(153, 153, 153);
@@ -28,16 +29,52 @@
 
     & .number {
         color: #7ed957;
-        font-size: 1.7rem;
+        font-size: 1.5rem;
     }
 
     &::before {
         content: '';
         top: -1.2rem;
-        left: 18rem;
+        left: 77.1vw;
         position: absolute;
         border-width: 10px;
         border-style: solid;
         border-color: transparent transparent rgb(255, 255, 255);
+    }
+}
+
+@media only screen and (min-width: 345px) {
+    .modal {
+        &::before {
+            left: 78.5vw;
+        }
+    }
+}
+
+@media only screen and (min-width: 377px) {
+    .modal {
+        &::before {
+            left:18.4rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .modal {
+        top: 67px;
+        max-width: 400px;
+        right: 2rem;
+        &::before {
+            left: 16.7rem;
+        }
+    }  
+}
+
+
+@media only screen and (max-width: 319px) {
+    .modal {
+        &::before {
+            display: none;
+        }
     }
 }

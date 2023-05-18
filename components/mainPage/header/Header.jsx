@@ -37,36 +37,35 @@ function Header() {
         </ul>
       </nav>
       <nav className={style.navDesktop}>
-        <ul
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            padding: "0 2rem",
-          }}
-        >
+        <ul className={style.navDesktopUpperUl}>
           <li>
-            <ul style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+            <ul className={style.navDesktopFirstInnerUl}>
               <li>
                 <a href="./">
                   <Logo />
                 </a>
               </li>
-              <hr style={{ height: "3.4rem", backgroundColor: "#EBEBEB" }} />
-              <li>Наші об&apos;єкти</li>
+              <hr className={style.hr} />
+              <li>
+                <button className={style.objectsButton}>
+                  Наші об&apos;єкти
+                </button>
+              </li>
             </ul>
           </li>
-          <li style={{ display: "flex", alignItems: "center" }}>
-            <ul style={{ display: "flex", gap: "1rem" }}>
+          <li className={style.lastUpperDesktopLi}>
+            <ul className={style.lastInnerUlDesktopLi}>
               <li>
-                <button type="button">
-                  <Phone />
+                <button type="button" className={style.desktopIconButon}>
+                  <Phone h={22} w={22} />
                 </button>
               </li>
               <li>
-                {" "}
-                <button type="button">
-                  <Find />
-                </button>
+                <a href="./find">
+                  <button type="button" className={style.desktopIconButon}>
+                    <Find h={22} w={22} />
+                  </button>
+                </a>
               </li>
             </ul>
           </li>
