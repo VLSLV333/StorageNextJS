@@ -1,21 +1,63 @@
 .section {
-    min-height: 425px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        url('../../../../images/mainPhoto/main.webp');
-    display: grid;
-    text-align: center;
-    background-size: cover;
-    background-position: center;
+  min-height: 425px;
+  display: grid;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
 }
 
 .h1 {
-    margin: auto;
-    color: white;
-    line-height: 1.7;
+  margin: auto;
+  color: white;
+  line-height: 1.7;
+  max-width: 20rem;
+  font-size: 2rem;
 }
 
 .green {
-    color: #7ed957;
+  color: #7ed957;
+  font-size: 3rem;
+  line-height: 0.1;
+}
+
+@media only screen and (min-width: 768px) {
+  .h1 {
+    max-width: initial;
     font-size: 3rem;
-    line-height: 0.1;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .section {
+    margin: 0 2.5rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .section {
+    margin: 0 2.5rem;
+  }
+}
+.of {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/mainMobileOffice.webp');
+}
+
+@media only screen and (min-width:768px) {
+.of {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/mainTabletOffice.webp');
+}
+}
+@media only screen and (min-width:1024px) {
+.of {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/mainDesktopOffice.webp');
+}
+}
+@media only screen and (min-width:1440px) {
+.of {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/mainLargeScreenOffice.webp');
+}
 }

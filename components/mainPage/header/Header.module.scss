@@ -27,6 +27,9 @@
 }
 .navDesktop {
   display: none;
+  & a {
+    text-decoration: none;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -54,6 +57,7 @@
 .hr {
   height: 3.4rem;
   background-color: #ebebeb;
+  margin-right: 0.7rem;
 }
 
 .lastUpperDesktopLi {
@@ -63,6 +67,7 @@
 
 .lastInnerUlDesktopLi {
   display: flex;
+  align-items: center;
   gap: 3rem;
 }
 
@@ -73,6 +78,10 @@
   font-size: 1rem;
   font-weight: 500;
   color: #393939;
+}
+
+.findText {
+  display: none;
 }
 
 //  в залежності від стейту в нашому редаксі змінюється стиль цієї кнопки
@@ -91,9 +100,50 @@
   height: 40px;
 }
 
+.hrBetweenIcons {
+  display: none;
+}
+
 .desktopIconButon:hover {
   background-color: #7ed957;
   color: white;
   border-radius: 50px;
 }
 
+@media only screen and (min-width: 1024px) {
+  .navDesktop {
+    display: block;
+    padding: 2rem 2rem 2rem 2.15rem;
+  }
+  .hrBetweenIcons {
+    display: block;
+    height: 3.4rem;
+    background-color: #ebebeb;
+  }
+  .navDesktopUpperUl {
+    padding-left: 0.8rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .navDesktop {
+    display: block;
+    padding: 2rem 3rem 2rem 2.55rem;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  .navDesktopUpperUl {
+    padding-left: 0.4rem;
+  }
+  .lastInnerUlDesktopLi li:last-child button {
+    min-width: 16.7rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .findText {
+    display: inline-block;
+    font-size: 1rem;
+  }
+}

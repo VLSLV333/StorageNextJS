@@ -1,9 +1,9 @@
-import style from './MainCard.module.scss'
+import style from "./MainCard.module.scss";
 
-export default function MainCard({ children }) {
-    return (
-        <section className={style.cardComponent}>
-            {children}
-        </section>
-    )
+export default function MainCard({ children, className }) {
+  return (
+    <a href="./find" className={`${style.cardComponent} ${className}`}>
+      {children}
+    </a>
+  );
 }

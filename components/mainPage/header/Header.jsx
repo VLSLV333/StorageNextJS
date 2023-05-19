@@ -60,10 +60,12 @@ function Header() {
                   <Phone h={22} w={22} />
                 </button>
               </li>
+              <hr className={style.hrBetweenIcons} />
               <li>
-                <a href="./find">
+                <a href="./find"> 
                   <button type="button" className={style.desktopIconButon}>
                     <Find h={22} w={22} />
+                    <p className={style.findText}>Знайдіть потрібний об&apos;єкт</p>
                   </button>
                 </a>
               </li>

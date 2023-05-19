@@ -25,8 +25,8 @@ export default function Home() {
       <Header />
       <Main />
       <Footer />
-      <PageBlur />
-      <ModalMeinMenu />
+      {/* <PageBlur /> */}
+      {/* <ModalMeinMenu /> */}
       {/* <ModalFind /> */}
       {/* <ModalPhone /> */}
     </>
