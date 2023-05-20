@@ -1,15 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-// import { createWrapper } from "next-redux-wrapper";
-// import { createWrapper } from "next-redux-wrapper";
 
-import pageBlurSliceReducer from './pageBlur'
+import pageBlurSliceReducer from './pageBlurSlice';
+import burgerMenuSlice from './burgerMenuSlice';
 
 const store = configureStore({
-    reducer: {
-        pageBlur: pageBlurSliceReducer,
-    }
-})
+  reducer: {
+    pageBlur: pageBlurSliceReducer,
+    burgerMenu: burgerMenuSlice,
+  },
+});
 
-export default store
-
-// export const wrapper = createWrapper(store);
+export default store;

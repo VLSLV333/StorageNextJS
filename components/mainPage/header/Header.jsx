@@ -1,3 +1,8 @@
+import { useDispatch } from 'react-redux';
+
+import { toggleBlur } from '../../../store/pageBlurSlice';
+import { showBurgerMenu, hideBurgerMenu } from '../../../store/burgerMenuSlice';
+
 import Burger from './vectors/burger/Burger';
 import Find from './vectors/find/Find';
 import Phone from './vectors/phone/Phone';
@@ -6,6 +11,25 @@ import Logo from './vectors/logo/Logo';
 import style from './Header.module.scss';
 
 function Header() {
+  const dispatch = useDispatch();
+
+  const burgerHandler = () => {
+    dispatch(toggleBlur(1));
+    dispatch(showBurgerMenu());
+  };
+  const burgerBlurHandler = () => {
+    dispatch(toggleBlur(1));
+    dispatch(hideBurgerMenu());
+  };
+
+  const findMobileHandler = () => {
+    dispatch(toggleBlur(2));
+  };
+
+  const phoneMobileHandler = () => {
+    dispatch(toggleBlur(3));
+  };
+
   return (
     <header>
       <nav className={style.navMobile}>
@@ -13,12 +37,16 @@ function Header() {
           <li>
             <ul className={style.nestedUl}>
               <li>
-                <button type="button">
+                <button
+                  type="button"
+                  onClick={burgerHandler}
+                  onBlur={burgerBlurHandler}
+                >
                   <Burger />
                 </button>
               </li>
               <li>
-                <button type="button">
+                <button type="button" onClick={findMobileHandler}>
                   <Find />
                 </button>
               </li>
@@ -30,7 +58,7 @@ function Header() {
             </a>
           </li>
           <li>
-            <button type="button">
+            <button type="button" onClick={phoneMobileHandler}>
               <Phone />
             </button>
           </li>

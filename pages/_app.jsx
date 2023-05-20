@@ -1,8 +1,13 @@
+'use client';
+
+import Providers from '@/components/Provider';
+
 import '../styles/globals.css';
-// import { wrapper } from "../store/index";
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <Providers>
+      <Component {...pageProps} />
+    </Providers>
+  );
 }
-
-// export default wrapper.withRedux(App);
