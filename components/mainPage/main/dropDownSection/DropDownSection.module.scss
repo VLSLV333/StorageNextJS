@@ -2,6 +2,46 @@
   width: 90%;
   margin: -7rem auto 5rem;
   position: relative;
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+  & .officeSvgDesktop {
+    height: 1.625rem;
+    width: 1.625rem;
+  }
+  & .wareHouseSvgDesktop {
+    height: 1.625rem;
+    width: 1.625rem;
+  }
+  & .fridgeSvgDesktop {
+    height: 1.625rem;
+    width: 1.625rem;
+  }
+  & .boxSvgDesktop {
+    height: 1.625rem;
+    width: 1.625rem;
+  }
+  & .wareHouseSvgMobile {
+    height: 1.5rem;
+    width: 1.5rem;
+    position: relative;
+    left: 0.05rem;
+    margin-right: 0.77rem;
+  }
+  & .fridgeSvgMobile {
+    height: 1.625rem;
+    width: 1.625rem;
+    position: relative;
+    margin-right: 0.7rem;
+  }
+  & .boxSvgMobile {
+    height: 1.7rem;
+    width: 1.7rem;
+    position: relative;
+    left: 1px;
+    margin-right: 0.7rem;
+  }
 }
 
 .lightPart {
@@ -31,7 +71,7 @@
 
     & .arrowsButton {
       width: calc(100% - 166px);
-      height: "36px";
+      height: '36px';
     }
   }
 
@@ -120,6 +160,10 @@
 @media only screen and (max-width: 381px) {
   .lightPart {
     padding: 1.5rem 0.2rem;
+    & .hidden {
+      left: 0px;
+      padding-left: 0.2rem;
+    }
     & h2 {
       padding: 1.5rem 0 0 0.5rem;
     }
@@ -127,15 +171,15 @@
 }
 
 @media only screen and (min-width: 768px) {
-    .cardMain {
-        max-width: 672px;
-        top: 1.4rem;
-    }
+  .cardMain {
+    max-width: 672px;
+    top: 1.4rem;
+  }
   .lightPart {
-      padding: 1.5rem 2.7rem 1.3rem;
+    padding: 1.5rem 2.7rem 1.3rem;
     & h2 {
-        padding:0;
-      }
+      padding: 0;
+    }
     & button {
       display: none;
     }
@@ -164,37 +208,46 @@
     gap: 1rem;
 
     & label {
-        display: inline-block;
-        width: auto;
-        flex: 0 73%
-      }
+      display: inline-block;
+      width: auto;
+      flex: 0 73%;
+    }
     & .desktopButton {
-        display: inline-block;
-        flex: 0 27%;
-        color: white;
-        background-color: #7ed957;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-weight: 700;
-      }
+      display: inline-block;
+      flex: 0 27%;
+      color: white;
+      background-color: #7ed957;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+    }
   }
 }
 
 @media only screen and (min-width: 1024px) {
-    .cardMain {
-        max-width: 776px;
-        top:0.7rem;
-    }
-    .lightPart {
-        padding: 2rem 5rem 1.5rem;
-    }
+  .cardMain {
+    max-width: 776px;
+    top: 0.7rem;
+  }
+  .lightPart {
+    padding: 2rem 5rem 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 1440px) {
-    .cardMain {
-        max-width: 862px;
+  .cardMain {
+    max-width: 862px;
+  }
+  .lightPart {
+    & .visible {
+      & .vectorText {
+        font-size: 1.3rem;
+      }
     }
-    .lightPart {
-        padding: 2rem 8rem 1.5rem;
+  }
+  .darkPart {
+    & .desktopButton {
+      font-size: 1.3rem;
     }
+  }
 }

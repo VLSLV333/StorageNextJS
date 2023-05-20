@@ -1,4 +1,4 @@
-import style from "./MainCard.module.scss";
+import style from './MainCard.module.scss';
 
 export default function MainCard({ children, className }) {
   return (

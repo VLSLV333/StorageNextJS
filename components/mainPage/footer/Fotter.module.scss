@@ -1,7 +1,6 @@
 .foot {
   background-color: #393939;
   padding: 1.5rem;
-  min-height: 20vh;
   display: grid;
 }
 
@@ -10,6 +9,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  & .logoSection {
+    display: none;
+  }
+  & .logoFooter {
+    height: 70px;
+    width: 120px;
+  }
   & h2 {
     font-size: 1.3rem;
     margin-bottom: 0.7rem;
@@ -19,5 +25,50 @@
   }
   & a {
     color: #7ed957;
+  }
+}
+
+@media only screen and (max-width: 359px) {
+  .footContainer {
+    & p {
+      font-size: 0.9rem;
+    }
+  }
+  .allObjectsSection {
+    text-align: end;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .footContainer {
+    align-items: normal;
+    & .logoSection {
+      display: block;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .footContainer {
+    align-items: center;
+    & .logoFooter {
+      height: 90px;
+      width: 140px;
+      position: relative;
+      top: 0.5rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .footContainer {
+    width: 1440px;
+    margin: 0 auto;
+    & h2 {
+      font-size: 1.5rem;
+    }
+    & p {
+      font-size: 1.2rem;
+    }
   }
 }

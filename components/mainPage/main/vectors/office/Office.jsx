@@ -1,12 +1,10 @@
-export default function Office({ color, height, width, r, l }) {
+export default function Office({ color, className }) {
   return (
     <svg
-      width={width}
-      height={height}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ position: 'relative', right: r, left: l }}
+      className={className}
     >
       <path
         d="M37.5 40.5H35.5C34.95 40.5 34.5 40.95 34.5 41.5V47.5H38.5V41.5C38.5 40.95 38.05 40.5 37.5 40.5Z"

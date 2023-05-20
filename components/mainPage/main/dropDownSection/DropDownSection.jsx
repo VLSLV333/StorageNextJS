@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import ArrowDown from "../vectors/arrowDown/ArrowDown";
-import ArrowUp from "../vectors/arrowUp/ArrowUp";
-import Find from "../../header/vectors/find/Find";
+import ArrowDown from '../vectors/arrowDown/ArrowDown';
+import ArrowUp from '../vectors/arrowUp/ArrowUp';
+import Find from '../../header/vectors/find/Find';
 
-import Office from "../vectors/office/Office";
-import Box from "../vectors/box/Box";
-import Fridge from "../vectors/fridge/Fridge";
-import Warehouse from "../vectors/warehouse/Warehouse";
+import Office from '../vectors/office/Office';
+import Box from '../vectors/box/Box';
+import Fridge from '../vectors/fridge/Fridge';
+import Warehouse from '../vectors/warehouse/Warehouse';
 
-import style from "./DropDownSection.module.scss";
+import style from './DropDownSection.module.scss';
 
 export default function DropDownSection({ w, m }) {
   const [opened, setOpened] = useState(false);
 
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
   const [showFind, setShowFind] = useState(false);
 
@@ -40,29 +40,38 @@ export default function DropDownSection({ w, m }) {
   };
 
   const formSubmitHandler = (e) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
   return (
     <section className={style.cardMain} style={{ width: w, margin: m }}>
       <div className={style.lightPart}>
         <h2 className={style.visible}>
-          <button className={style.vectorText}>
-            <Office color="black" height="26px" width="26px" />
+          <a className={style.vectorText} href="./find">
+            <Office color="black" className={style.officeSvgDesktop} />
             Офіси
-          </button>
-          <button className={`${style.vectorText} ${style.vectorTextDesktop}`}>
-            <Warehouse color="black" height="26px" width="26px" />
+          </a>
+          <a
+            className={`${style.vectorText} ${style.vectorTextDesktop}`}
+            href="./find"
+          >
+            <Warehouse color="black" className={style.wareHouseSvgDesktop} />
             Склади
-          </button>
-          <button className={`${style.vectorText} ${style.vectorTextDesktop}`}>
-            <Fridge color="black" height="26px" width="26px" />
+          </a>
+          <a
+            className={`${style.vectorText} ${style.vectorTextDesktop}`}
+            href="./find"
+          >
+            <Fridge color="black" className={style.fridgeSvgDesktop} />
             Холодильні приміщення
-          </button>
-          <button className={`${style.vectorText} ${style.vectorTextDesktop}`}>
-            <Box color="black" height="26px" width="26px" />
+          </a>
+          <a
+            className={`${style.vectorText} ${style.vectorTextDesktop}`}
+            href="./find"
+          >
+            <Box color="black" className={style.boxSvgDesktop} />
             Бокси
-          </button>
+          </a>
           <button
             type="button"
             onClick={buttonHandler}
@@ -76,31 +85,19 @@ export default function DropDownSection({ w, m }) {
         <div
           className={style.hidden}
           style={{
-            display: !opened ? "none" : "",
+            display: !opened ? 'none' : '',
           }}
         >
           <h2>
-            <Warehouse
-              color="black"
-              height="24px"
-              width="24px"
-              l="0.05rem"
-              mr="0.77rem"
-            />
+            <Warehouse color="black" className={style.wareHouseSvgMobile} />
             Складські приміщення
           </h2>
           <h2>
-            <Fridge color="black" mr="0.7rem" height="26px" width="26px" />
+            <Fridge color="black" className={style.fridgeSvgMobile} />
             Холодильні приміщення
           </h2>
           <h2 className={style.lastH2}>
-            <Box
-              color="black"
-              height="32px"
-              width="32px"
-              mr="0.35rem"
-              r="5.5px"
-            />
+            <Box color="black" className={style.boxSvgMobile} />
             Бокси
           </h2>
         </div>
@@ -115,21 +112,23 @@ export default function DropDownSection({ w, m }) {
             type="number"
             onBlur={inputBlurHandler}
             style={{
-              borderColor: inputFocused ? "#7ed957" : "rgb(217, 219, 221)",
+              borderColor: inputFocused ? '#7ed957' : 'rgb(217, 219, 221)',
             }}
             onClick={inputClickHandler}
             max={900}
           />
-          <span style={{ color: inputFocused ? "#7ed957" : "inherit" }}>
+          <span style={{ color: inputFocused ? '#7ed957' : 'inherit' }}>
             Введіть м2
           </span>
         </label>
         {showFind && (
-          <button type="submit"  className={style.hiddenLoopButton}>
+          <button type="submit" className={style.hiddenLoopButton}>
             <Find />
           </button>
         )}
-        <button type="submit" className={style.desktopButton}>Знайти</button>
+        <button type="submit" className={style.desktopButton}>
+          Знайти
+        </button>
       </form>
     </section>
   );

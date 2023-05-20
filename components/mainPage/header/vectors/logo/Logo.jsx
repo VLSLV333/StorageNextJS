@@ -1,6 +1,4 @@
-import style from "./Logo.module.scss";
-
-function Logo() {
+function Logo({ className }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,7 +8,7 @@ function Logo() {
       height="50"
       preserveAspectRatio="xMidYMid meet"
       version="1.0"
-      className={style.logo}
+      className={className}
     >
       <defs>
         <g />

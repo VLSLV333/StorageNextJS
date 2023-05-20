@@ -25,6 +25,11 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.logoHeaderMobile {
+  position: relative;
+  right: 9%;
+}
+
 .navDesktop {
   display: none;
   & a {
@@ -115,6 +120,10 @@
     display: block;
     padding: 2rem 2rem 2rem 2.15rem;
   }
+  .logoHeaderDesktop {
+    width: 120px;
+    height: 70px;
+  }
   .hrBetweenIcons {
     display: block;
     height: 3.4rem;
@@ -135,12 +144,20 @@
   .navDesktopUpperUl {
     padding-left: 0.4rem;
   }
+
+  .objectsButton {
+    font-size: 1.2rem;
+  }
+
   .lastInnerUlDesktopLi li:last-child button {
-    min-width: 16.7rem;
+    min-width: 19.3rem;
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 1rem;
+    & p {
+      font-size: 1.2rem;
+    }
   }
   .findText {
     display: inline-block;
