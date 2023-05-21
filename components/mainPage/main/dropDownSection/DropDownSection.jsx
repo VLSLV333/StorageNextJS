@@ -13,7 +13,6 @@ import style from './DropDownSection.module.scss';
 
 export default function DropDownSection({ w, m }) {
   const [opened, setOpened] = useState(false);
-
   const [inputValue, setInputValue] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
   const [showFind, setShowFind] = useState(false);

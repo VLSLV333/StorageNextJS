@@ -7,6 +7,11 @@ const pageBlurSlice = createSlice({
   initialState,
   reducers: {
     toggleBlur: (state, { payload }) => {
+      if (payload === 'hide') {
+        state.pageBlur = false;
+        state.sameModalPressed = null;
+        return;
+      }
       if (state.sameModalPressed === null) {
         state.pageBlur = true;
         state.sameModalPressed = payload;

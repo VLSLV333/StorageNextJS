@@ -1,7 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useRef, useEffect } from 'react';
+
+import { useDispatch, useSelector } from 'react-redux';
 
 import { toggleBlur } from '../../../store/pageBlurSlice';
 import { showBurgerMenu, hideBurgerMenu } from '../../../store/burgerMenuSlice';
+import { openFindModal, hideFindModal } from '@/store/findModalMobileSlice';
+import { openPhoneModal, hidePhoneModal } from '@/store/phoneModalSlice';
 
 import Burger from './vectors/burger/Burger';
 import Find from './vectors/find/Find';
@@ -11,23 +15,78 @@ import Logo from './vectors/logo/Logo';
 import style from './Header.module.scss';
 
 function Header() {
+  const findButtonRef = useRef(null);
+  const phoneButtonRef = useRef(null);
+
   const dispatch = useDispatch();
+  const burgerMenuOpened = useSelector(
+    (state) => state.burgerMenu.openBurgerMenu
+  );
+  const findModalMobileOpened = useSelector(
+    (state) => state.findModalMobile.showFindModal
+  );
+  const clickedInFindModal = useSelector(
+    (state) => state.findModalMobile.clickedInModal
+  );
+  const phoneModalOpened = useSelector(
+    (state) => state.phoneModal.showPhoneModal
+  );
+  const clickedInPhoneModal = useSelector(
+    (state) => state.phoneModal.clickedInPhoneModal
+  );
+
+  useEffect(() => {
+    if (clickedInFindModal === false) {
+      findButtonRef.current?.focus();
+    }
+  }, [clickedInFindModal]);
+  useEffect(() => {
+    if (clickedInPhoneModal === false) {
+      phoneButtonRef.current?.focus();
+    }
+  }, [clickedInPhoneModal]);
 
   const burgerHandler = () => {
     dispatch(toggleBlur(1));
-    dispatch(showBurgerMenu());
+    if (!burgerMenuOpened) {
+      dispatch(showBurgerMenu());
+    } else {
+      dispatch(hideBurgerMenu());
+    }
   };
   const burgerBlurHandler = () => {
-    dispatch(toggleBlur(1));
+    dispatch(toggleBlur('hide'));
     dispatch(hideBurgerMenu());
   };
 
   const findMobileHandler = () => {
     dispatch(toggleBlur(2));
+    if (!findModalMobileOpened) {
+      dispatch(openFindModal());
+    } else {
+      dispatch(hideFindModal());
+    }
+  };
+  const findMobileBlurHandler = () => {
+    if (!clickedInFindModal) {
+      dispatch(toggleBlur('hide'));
+      dispatch(hideFindModal());
+    }
   };
 
   const phoneMobileHandler = () => {
     dispatch(toggleBlur(3));
+    if (!phoneModalOpened) {
+      dispatch(openPhoneModal());
+    } else {
+      dispatch(hidePhoneModal());
+    }
+  };
+  const phoneBlurHandler = () => {
+    if (!clickedInPhoneModal) {
+      dispatch(toggleBlur('hide'));
+      dispatch(hidePhoneModal());
+    }
   };
 
   return (
@@ -41,12 +100,19 @@ function Header() {
                   type="button"
                   onClick={burgerHandler}
                   onBlur={burgerBlurHandler}
+                  className={burgerMenuOpened ? style.hoverClass : ''}
                 >
                   <Burger />
                 </button>
               </li>
               <li>
-                <button type="button" onClick={findMobileHandler}>
+                <button
+                  type="button"
+                  onClick={findMobileHandler}
+                  onBlur={findMobileBlurHandler}
+                  className={findModalMobileOpened ? style.hoverClass : ''}
+                  ref={findButtonRef}
+                >
                   <Find />
                 </button>
               </li>
@@ -58,7 +124,13 @@ function Header() {
             </a>
           </li>
           <li>
-            <button type="button" onClick={phoneMobileHandler}>
+            <button
+              type="button"
+              onClick={phoneMobileHandler}
+              onBlur={phoneBlurHandler}
+              className={phoneModalOpened ? style.hoverClass : ''}
+              ref={phoneButtonRef}
+            >
               <Phone />
             </button>
           </li>

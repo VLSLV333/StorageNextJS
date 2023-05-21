@@ -1,3 +1,8 @@
+import { useDispatch } from 'react-redux';
+
+import { toggleBlur } from '@/store/pageBlurSlice';
+import { hideBurgerMenu } from '@/store/burgerMenuSlice';
+
 import Office from '../mainPage/main/vectors/office/Office';
 import Warehouse from '../mainPage/main/vectors/warehouse/Warehouse';
 import Fridge from '../mainPage/main/vectors/fridge/Fridge';
@@ -6,8 +11,14 @@ import Box from '../mainPage/main/vectors/box/Box';
 import style from './ModalMainMenu.module.scss';
 
 export default function ModalMeinMenu() {
+  const dispatch = useDispatch();
+  const mouseLeaveHandler = () => {
+    dispatch(hideBurgerMenu());
+    dispatch(toggleBlur('hide'));
+  };
+
   return (
-    <section className={style.modal}>
+    <section className={style.modal} onMouseLeave={mouseLeaveHandler}>
       <div className={style.textContainer}>
         <h2>Оберіть об&apos;єкт</h2>
         <a href="./find">

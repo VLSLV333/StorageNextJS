@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { useSelector } from 'react-redux';
 
 import Head from 'next/head';
@@ -7,12 +9,26 @@ import Footer from '../components/mainPage/footer/Footer';
 
 import PageBlur from '../components/wholePageBlur/PageBlur';
 import ModalMeinMenu from '../components/modalMainMenu/ModalMainMenu';
-// import ModalFind from '../components/modalFind/ModalFind';
-// import ModalPhone from '../components/modalPhone/ModalPhone';
+import ModalFind from '../components/modalFind/ModalFind';
+import ModalPhone from '../components/modalPhone/ModalPhone';
 
 export default function Home() {
   const openBlur = useSelector((state) => state.pageBlur.pageBlur);
   const openBurger = useSelector((state) => state.burgerMenu.openBurgerMenu);
+  const openModalFind = useSelector(
+    (state) => state.findModalMobile.showFindModal
+  );
+  const openPhoneModal = useSelector(
+    (state) => state.phoneModal.showPhoneModal
+  );
+
+  useEffect(() => {
+    if (openBlur) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [openBlur]);
 
   return (
     <>
@@ -30,9 +46,8 @@ export default function Home() {
       <Footer />
       {openBlur && <PageBlur />}
       {openBurger && <ModalMeinMenu />}
-      {/* <ModalMeinMenu /> */}
-      {/* <ModalFind /> */}
-      {/* <ModalPhone /> */}
+      {openModalFind && <ModalFind />}
+      {openPhoneModal && <ModalPhone />}
     </>
   );
 }
