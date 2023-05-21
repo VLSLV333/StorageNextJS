@@ -9,6 +9,11 @@
   border-radius: 4px 1rem 1rem 1rem;
   box-shadow: 0px 5px 30px rgb(153, 153, 153);
 
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   & .textContainer a {
     display: none;
   }
@@ -89,7 +94,6 @@
       display: block;
       padding-right: 1.5rem;
       margin: 0.5rem 0 2rem 0;
-      text-decoration: none;
     }
 
     & .textContainer p {
@@ -122,12 +126,13 @@
       gap: 25px;
       padding: 0.5rem 0.5rem 1.5rem;
 
-      & button {
-        padding: 0.8rem;
+      & a {
+        padding: 0.8rem 0.8rem 0.8rem 0.8rem;
+        margin-left: -0.8rem;
         font-size: 1rem;
       }
 
-      & button:active {
+      & a:active {
         background-color: #f4f3f0;
         border-radius: 0.5rem;
       }

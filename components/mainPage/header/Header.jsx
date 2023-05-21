@@ -15,12 +15,16 @@ import Logo from './vectors/logo/Logo';
 import style from './Header.module.scss';
 
 function Header() {
+  const burgerButtonRef = useRef(null);
   const findButtonRef = useRef(null);
   const phoneButtonRef = useRef(null);
 
   const dispatch = useDispatch();
   const burgerMenuOpened = useSelector(
     (state) => state.burgerMenu.openBurgerMenu
+  );
+  const clickedInBurgerModal = useSelector(
+    (state) => state.burgerMenu.clickedInBurgerModal
   );
   const findModalMobileOpened = useSelector(
     (state) => state.findModalMobile.showFindModal
@@ -35,6 +39,11 @@ function Header() {
     (state) => state.phoneModal.clickedInPhoneModal
   );
 
+  useEffect(() => {
+    if (clickedInBurgerModal === false) {
+      burgerButtonRef.current?.focus();
+    }
+  }, [clickedInBurgerModal]);
   useEffect(() => {
     if (clickedInFindModal === false) {
       findButtonRef.current?.focus();
@@ -55,8 +64,10 @@ function Header() {
     }
   };
   const burgerBlurHandler = () => {
-    dispatch(toggleBlur('hide'));
-    dispatch(hideBurgerMenu());
+    if (!clickedInBurgerModal) {
+      dispatch(toggleBlur('hide'));
+      dispatch(hideBurgerMenu());
+    }
   };
 
   const findMobileHandler = () => {
@@ -101,6 +112,7 @@ function Header() {
                   onClick={burgerHandler}
                   onBlur={burgerBlurHandler}
                   className={burgerMenuOpened ? style.hoverClass : ''}
+                  ref={burgerButtonRef}
                 >
                   <Burger />
                 </button>
@@ -148,7 +160,7 @@ function Header() {
               <hr className={style.hr} />
               <li>
                 <button className={style.objectsButton} type="button">
-                  Усі об&apos;єкти
+                  Приміщення
                 </button>
               </li>
             </ul>
