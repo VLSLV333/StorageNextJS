@@ -1,9 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { openBurgerMenu: false, clickedInBurgerModal: false };
+const initialState = {
+  openBurgerMenu: false,
+  clickedInBurgerModal: false,
+  severalClicksOnBurgerModal: false,
+};
 
 const burgerMenuSlice = createSlice({
-  name: 'burgerMenuSlice',
+  name: "burgerMenuSlice",
   initialState,
   reducers: {
     showBurgerMenu: (state) => {
@@ -13,15 +17,26 @@ const burgerMenuSlice = createSlice({
       state.openBurgerMenu = false;
     },
     setClickedInBurgerModal: (state, { payload }) => {
-      if (payload === 'yes') {
+      if (payload === "yes") {
         state.clickedInBurgerModal = true;
-      } else if (payload === 'no') {
+      } else if (payload === "no") {
         state.clickedInBurgerModal = false;
+      }
+    },
+    setSeveralClicksOnBurgerModal: (state, { payload }) => {
+      if (payload === "yes") {
+        state.severalClicksOnBurgerModal = true;
+      } else if (payload === "no") {
+        state.severalClicksOnBurgerModal = false;
       }
     },
   },
 });
 
-export const { showBurgerMenu, hideBurgerMenu, setClickedInBurgerModal } =
-  burgerMenuSlice.actions;
+export const {
+  showBurgerMenu,
+  hideBurgerMenu,
+  setClickedInBurgerModal,
+  setSeveralClicksOnBurgerModal,
+} = burgerMenuSlice.actions;
 export default burgerMenuSlice.reducer;

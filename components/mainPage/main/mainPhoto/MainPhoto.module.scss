@@ -43,6 +43,11 @@
       url('../../../../images/mainPhoto/mainMobileOffice.webp');
 }
 
+.wa {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/test.jpg');
+}
+
 @media only screen and (min-width:768px) {
 .of {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),

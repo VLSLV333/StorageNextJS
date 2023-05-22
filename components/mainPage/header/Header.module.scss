@@ -24,6 +24,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  & .findButton:active {
+    background-color: #7ed957;
+    border-radius: 50px;
+  }
+  & .findButton:hover {
+    background-color: #7ed957;
+    border-radius: 50px;
+  }
 }
 .logoHeaderMobile {
   position: relative;
@@ -95,7 +103,12 @@
 //   color: white;
 // }
 
-.objectsButton:hover {
+// .objectsButton:hover {
+//   background-color: #7ed957;
+//   color: white;
+// }
+
+.objectsButtonClicked {
   background-color: #7ed957;
   color: white;
 }
