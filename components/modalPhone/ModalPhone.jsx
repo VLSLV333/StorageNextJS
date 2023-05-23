@@ -8,7 +8,7 @@ export default function ModalPhone() {
   const modalPhoneRef = useRef(null);
   useOutsideClick(modalPhoneRef);
   return (
-    <section className={style.modal} ref={modalPhoneRef}>
+    <section className={style.modal} ref={modalPhoneRef} id='phone'>
       <h2>Зв&apos;яжіться з нами</h2>
       <hr />
       <p>

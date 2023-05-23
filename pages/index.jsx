@@ -46,7 +46,7 @@ export default function Home() {
       <Footer />
       {openBlur && <PageBlur />}
       {openBurger && <ModalMeinMenu />}
-      {openModalFind && <ModalFind />}
+      {/* {openModalFind && <ModalFind />} */}
       {openPhoneModal && <ModalPhone />}
     </>
   );

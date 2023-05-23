@@ -16,16 +16,11 @@ import Logo from "./vectors/logo/Logo";
 
 import style from "./Header.module.scss";
 
-let phoneMobileBlur = true;
-let burgerMobileBlur = true;
-
 function Header() {
-  // let test = true
   const router = useRouter();
   const burgerButtonRef = useRef(null);
   const phoneButtonRef = useRef(null);
 
-  // const findButtonRef = useRef(null);
 
   const dispatch = useDispatch();
   const burgerMenuOpened = useSelector(
@@ -37,13 +32,7 @@ function Header() {
   const severalClicksInBurgerModal = useSelector(
     (state) => state.burgerMenu.severalClicksOnBurgerModal
   );
-  // console.log(severalClicksInBurgerModal)
-  // const findModalMobileOpened = useSelector(
-  //   (state) => state.findModalMobile.showFindModal
-  // );
-  // const clickedInFindModal = useSelector(
-  //   (state) => state.findModalMobile.clickedInModal
-  // );
+
   const phoneModalOpened = useSelector(
     (state) => state.phoneModal.showPhoneModal
   );
@@ -54,49 +43,33 @@ function Header() {
     (state) => state.phoneModal.severalClicksOnPhoneModal
   );
 
+
   useEffect(() => {
     if (clickedInBurgerModal === false) {
-      // console.log('effect burg')
-      // if (burgerMobileBlur){
       burgerButtonRef.current?.focus();
-      // }
-    }
+    } 
   }, [clickedInBurgerModal]);
-  // useEffect(() => {
-  //   if (clickedInFindModal === false) {
-  //     findButtonRef.current?.focus();
-  //   }
-  // }, [clickedInFindModal]);
+
   useEffect(() => {
     if (clickedInPhoneModal === false) {
-      // console.log('effect phone')
-      // if (phoneMobileBlur){
       phoneButtonRef.current?.focus();
-      // phoneButtonRef.current?.blur();
-      // test = false
-      // }
     }
   }, [clickedInPhoneModal]);
 
+
   const burgerHandler = () => {
-    console.log('burger click')
     dispatch(toggleBlur(1));
     if (!burgerMenuOpened && !severalClicksInBurgerModal) {
-      console.log('burger click 1')
       dispatch(showBurgerMenu());
     } else if (severalClicksInBurgerModal) {
-      console.log('burger click 2')
       dispatch(hideBurgerMenu());
       dispatch(toggleBlur("hide"));
       dispatch(setSeveralClicksOnBurgerModal('no'));
     } else {
-      console.log('burger click 3')
       dispatch(hideBurgerMenu());
     }
   };
   const burgerBlurHandler = () => {
-    // console.log('burger blur')
-    // burgerMobileBlur = true;
     if (!clickedInBurgerModal) {
       dispatch(toggleBlur("hide"));
       dispatch(hideBurgerMenu());
@@ -106,28 +79,18 @@ function Header() {
 
 
   const phoneMobileHandler = () => {
-    console.log('phone click')
     dispatch(toggleBlur(3));
     if (!phoneModalOpened && !severalClicksInPhoneModal) {
-      console.log('phone click 1')
-      // if (!phoneModalOpened ) {
       dispatch(openPhoneModal());
     } else if (severalClicksInPhoneModal) {
-      console.log('phone click 2')
       dispatch(hidePhoneModal());
       dispatch(toggleBlur("hide"));
       dispatch(setSeveralClicksOnPhoneModal("no"));
     } else {
-      console.log('phone click 3')
       dispatch(hidePhoneModal());
     }
-    // } else {
-    //   dispatch(hidePhoneModal());
-    // }
   };
   const phoneBlurHandler = () => {
-    // console.log('phone blur')
-    // phoneMobileBlur = true;
     if (!clickedInPhoneModal) {
       dispatch(toggleBlur("hide"));
       dispatch(hidePhoneModal());
@@ -143,30 +106,7 @@ function Header() {
       pathname: "/find",
       query: { keyword: "came from search icon" },
     });
-    // if (!findModalMobileOpened) {
-    //   dispatch(openFindModal());
-    // } else {
-    //   dispatch(hideFindModal());
-    // }
   };
-  // const findMobileBlurHandler = () => {
-  //   if (!clickedInFindModal) {
-  //     dispatch(toggleBlur('hide'));
-  //     dispatch(hideFindModal());
-  //   }
-  // };
-
-
-
-  // const mainMenuDesktopButtonHandler = () => {
-  //   dispatch(toggleBlur(1));
-  //   if (!burgerMenuOpened) {
-  //     dispatch(showBurgerMenu());
-  //   } else {
-  //     dispatch(hideBurgerMenu());
-  //   }
-  // }
-
   return (
     <header>
       <nav className={style.navMobile}>
@@ -189,9 +129,6 @@ function Header() {
                   type="button"
                   onClick={findMobileHandler}
                   className={style.findButton}
-                  // onBlur={findMobileBlurHandler}
-                  // className={findModalMobileOpened ? style.hoverClass : ''}
-                  // ref={findButtonRef}
                 >
                   <Find />
                 </button>

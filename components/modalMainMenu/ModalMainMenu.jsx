@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { toggleBlur } from '@/store/pageBlurSlice';
-import { hideBurgerMenu } from '@/store/burgerMenuSlice';
+import { hideBurgerMenu, setSeveralClicksOnBurgerModal } from '@/store/burgerMenuSlice';
 
 import useOutsideClick from '@/hooks/useOutsideClick';
 
@@ -18,17 +18,19 @@ export default function ModalMeinMenu() {
   const mainMenuRef = useRef(null);
   useOutsideClick(mainMenuRef);
 
-  const dispatch = useDispatch();
-  const mouseLeaveHandler = () => {
-    dispatch(hideBurgerMenu());
-    dispatch(toggleBlur('hide'));
-  };
+  // const dispatch = useDispatch();
+  // const mouseLeaveHandler = () => {
+  //   dispatch(hideBurgerMenu());
+  //   dispatch(toggleBlur('hide'));
+  //   dispatch(setSeveralClicksOnBurgerModal('no'));
+  // };
 
   return (
     <section
       className={style.modal}
-      onMouseLeave={mouseLeaveHandler}
+      // onMouseLeave={mouseLeaveHandler}
       ref={mainMenuRef}
+      id='burger'
     >
       <div className={style.textContainer}>
         <h2>Оберіть об&apos;єкт</h2>

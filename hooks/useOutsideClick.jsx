@@ -13,14 +13,17 @@ function useOutsideClick(ref) {
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && ref.current.contains(event.target)) {
+        if (ref.current.id === 'burger') {
+          dispatch(setClickedInBurgerModal("yes"));
+          dispatch(setSeveralClicksOnBurgerModal("yes"));
+        }
+        if (ref.current.id === 'phone') {
+          dispatch(setClickedInPhoneModal("yes"));
+          dispatch(setSeveralClicksOnPhoneModal("yes"));
+        }
+
         // dispatch(setClickedInModal("yes"));
-        dispatch(setClickedInPhoneModal("yes"));
-        dispatch(setClickedInBurgerModal("yes"));
-        dispatch(setSeveralClicksOnBurgerModal("yes"));
-        dispatch(setSeveralClicksOnPhoneModal("yes"));
-        console.log('yes')
       } else {
-        console.log('no')
         // dispatch(setClickedInModal("no"));
         dispatch(setClickedInPhoneModal("no"));
         dispatch(setClickedInBurgerModal("no"));
