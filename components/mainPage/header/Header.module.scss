@@ -43,6 +43,26 @@
   & a {
     text-decoration: none;
   }
+  & .hoverClass {
+    background-color: #7ed957;
+    border-radius: 50px;
+  }
+}
+.phoneSvg {
+  height: 22px;
+  width: 22px;
+}
+.findSvg {
+  height: 22px;
+  width: 22px;
+}
+.findSvgMobile {
+  height: 18px;
+  width: 18px;
+}
+.phoneSvgMobile {
+  height: 18px;
+  width: 18px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -91,22 +111,44 @@
   font-size: 1rem;
   font-weight: 500;
   color: #393939;
+  &:hover {
+    background-color: #7ed957;
+    color: white;
+  }
+  &:active {
+    background-color: #7ed957;
+    color: white;
+  }
+}
+
+.burgerTriangle {
+  &::before {
+    content: '';
+    top: 3.65rem;
+    left: 1.2rem;
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255);
+    z-index: 5;
+  }
+}
+.phoneTriangle {
+  &::before {
+    content: '';
+    top: 3.65rem;
+    right: 1.77rem;
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent rgb(255, 255, 255);
+    z-index: 5;
+  }
 }
 
 .findText {
   display: none;
 }
-
-//  в залежності від стейту в нашому редаксі змінюється стиль цієї кнопки
-// .objectsButton:active {
-//   background-color: #7ed957;
-//   color: white;
-// }
-
-// .objectsButton:hover {
-//   background-color: #7ed957;
-//   color: white;
-// }
 
 .objectsButtonClicked {
   background-color: #7ed957;
@@ -148,6 +190,18 @@
 }
 
 @media only screen and (min-width: 1440px) {
+  .desktopIconButon {
+    width: 55px;
+    height: 55px;
+  }
+  .phoneSvg {
+    height: 28px;
+    width: 28px;
+  }
+  .findSvg {
+    height: 28px;
+    width: 28px;
+  }
   .navDesktop {
     display: block;
     padding: 2rem 3rem 2rem 2.55rem;
@@ -163,7 +217,7 @@
   }
 
   .lastInnerUlDesktopLi li:last-child button {
-    min-width: 19.3rem;
+    min-width: 20rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -175,5 +229,21 @@
   .findText {
     display: inline-block;
     font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .nestedUl {
+    display: none;
+  }
+  .ul {
+    justify-content: center;
+  }
+  .ul li:last-child{
+    display: none;
+  }
+  .logoHeaderMobile {
+    position: relative;
+    right: 0;
   }
 }

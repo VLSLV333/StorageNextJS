@@ -32,41 +32,29 @@
         font-size: 1.5rem;
     }
 
-    &::before {
-        content: '';
-        top: -1.2rem;
-        left: 77.1vw;
-        position: absolute;
-        border-width: 10px;
-        border-style: solid;
-        border-color: transparent transparent rgb(255, 255, 255);
-    }
 }
 
-@media only screen and (min-width: 345px) {
-    .modal {
-        &::before {
-            left: 78.5vw;
-        }
-    }
-}
-
-@media only screen and (min-width: 377px) {
-    .modal {
-        &::before {
-            left:18.4rem;
-        }
-    }
-}
 
 @media only screen and (min-width: 768px) {
     .modal {
-        top: 67px;
+        top: 4.3rem;
         max-width: 400px;
         right: 2rem;
-        &::before {
-            left: 16.7rem;
-        }
+    }  
+}
+
+@media only screen and (min-width: 1024px) {
+    .modal {
+        top: 7.5rem;
+    }  
+}
+
+@media only screen and (min-width: 1440px) {
+    .modal {
+        top: 8.5rem;
+        left: 30rem;
+        right: 0;
+        margin: 0 auto;
     }  
 }
 

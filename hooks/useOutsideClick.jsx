@@ -21,7 +21,6 @@ function useOutsideClick(ref) {
           dispatch(setClickedInPhoneModal("yes"));
           dispatch(setSeveralClicksOnPhoneModal("yes"));
         }
-
         // dispatch(setClickedInModal("yes"));
       } else {
         // dispatch(setClickedInModal("no"));

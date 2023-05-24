@@ -85,17 +85,32 @@ export default function DropDownSection({ w, m }) {
     dispatch(setSelectedObject(0));
     setOpened(false);
   };
+  const officeDesktopButtonHandler = () => {
+    dispatch(setSelectedObject(0));
+  };
+
   const warehouseMobileButtonHandler = () => {
     dispatch(setSelectedObject(1));
     setOpened(false);
   };
+  const warehouseDesktopButtonHandler = () => {
+    dispatch(setSelectedObject(1));
+  };
+
   const fridgeMobileButtonHandler = () => {
     dispatch(setSelectedObject(2));
     setOpened(false);
   };
+  const fridgeDesktopButtonHandler = () => {
+    dispatch(setSelectedObject(2));
+  };
+
   const BoxMobileButtonHandler = () => {
     dispatch(setSelectedObject(3));
     setOpened(false);
+  };
+  const BoxDesktopButtonHandler = () => {
+    dispatch(setSelectedObject(3));
   };
 
   let officeSelected = svgInStorage === "office";
@@ -118,6 +133,7 @@ export default function DropDownSection({ w, m }) {
           <button
             className={`${style.vectorText} ${style.vectorTextDesktop} ${officeSelected ? style.greenBottom : ''}`}
             href="./find"
+            onClick={officeDesktopButtonHandler}
           >
             <Office color="black" className={style.officeSvgDesktop} />
             Офіси
@@ -125,6 +141,7 @@ export default function DropDownSection({ w, m }) {
           <button
             className={`${style.vectorText} ${style.vectorTextDesktop} ${wareHouseSelected ? style.greenBottom : ''}`}
             href="./find"
+            onClick={warehouseDesktopButtonHandler}
           >
             <Warehouse color="black" className={style.wareHouseSvgDesktop} />
             Склади
@@ -132,6 +149,7 @@ export default function DropDownSection({ w, m }) {
           <button
             className={`${style.vectorText} ${style.vectorTextDesktop} ${fridgeSelected ? style.greenBottom : ''}`}
             href="./find"
+            onClick={fridgeDesktopButtonHandler}
           >
             <Fridge color="black" className={style.fridgeSvgDesktop} />
             Холодильні приміщення
@@ -139,6 +157,7 @@ export default function DropDownSection({ w, m }) {
           <button
             className={`${style.vectorText} ${style.vectorTextDesktop} ${boxSelected ? style.greenBottom : ''}`}
             href="./find"
+            onClick={BoxDesktopButtonHandler}
           >
             <Box color="black" className={style.boxSvgDesktop} />
             Бокси

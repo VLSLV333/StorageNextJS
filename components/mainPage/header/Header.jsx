@@ -1,13 +1,21 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
 import { useRouter } from "next/navigation";
 
 import { toggleBlur } from "../../../store/pageBlurSlice";
-import { showBurgerMenu, hideBurgerMenu, setSeveralClicksOnBurgerModal } from "../../../store/burgerMenuSlice";
+import {
+  showBurgerMenu,
+  hideBurgerMenu,
+  setSeveralClicksOnBurgerModal,
+} from "../../../store/burgerMenuSlice";
 // import { openFindModal, hideFindModal } from '@/store/findModalMobileSlice';
-import { openPhoneModal, hidePhoneModal, setSeveralClicksOnPhoneModal } from "@/store/phoneModalSlice";
+import {
+  openPhoneModal,
+  hidePhoneModal,
+  setSeveralClicksOnPhoneModal,
+} from "@/store/phoneModalSlice";
 
 import Burger from "./vectors/burger/Burger";
 import Find from "./vectors/find/Find";
@@ -18,9 +26,12 @@ import style from "./Header.module.scss";
 
 function Header() {
   const router = useRouter();
-  const burgerButtonRef = useRef(null);
-  const phoneButtonRef = useRef(null);
 
+  const burgerButtonRef = useRef(null);
+  const burgerButtonDesktopRef = useRef(null);
+
+  const phoneButtonRef = useRef(null);
+  const phoneButtonDesktopRef = useRef(null);
 
   const dispatch = useDispatch();
   const burgerMenuOpened = useSelector(
@@ -43,19 +54,19 @@ function Header() {
     (state) => state.phoneModal.severalClicksOnPhoneModal
   );
 
-
   useEffect(() => {
     if (clickedInBurgerModal === false) {
       burgerButtonRef.current?.focus();
-    } 
+      burgerButtonDesktopRef.current?.focus();
+    }
   }, [clickedInBurgerModal]);
 
   useEffect(() => {
     if (clickedInPhoneModal === false) {
       phoneButtonRef.current?.focus();
+      phoneButtonDesktopRef.current?.focus();
     }
   }, [clickedInPhoneModal]);
-
 
   const burgerHandler = () => {
     dispatch(toggleBlur(1));
@@ -64,7 +75,7 @@ function Header() {
     } else if (severalClicksInBurgerModal) {
       dispatch(hideBurgerMenu());
       dispatch(toggleBlur("hide"));
-      dispatch(setSeveralClicksOnBurgerModal('no'));
+      dispatch(setSeveralClicksOnBurgerModal("no"));
     } else {
       dispatch(hideBurgerMenu());
     }
@@ -73,10 +84,9 @@ function Header() {
     if (!clickedInBurgerModal) {
       dispatch(toggleBlur("hide"));
       dispatch(hideBurgerMenu());
-      dispatch(setSeveralClicksOnBurgerModal('no'));
+      dispatch(setSeveralClicksOnBurgerModal("no"));
     }
   };
-
 
   const phoneMobileHandler = () => {
     dispatch(toggleBlur(3));
@@ -98,8 +108,6 @@ function Header() {
     }
   };
 
-
-
   const findMobileHandler = () => {
     dispatch(toggleBlur(2));
     router.push({
@@ -107,6 +115,14 @@ function Header() {
       query: { keyword: "came from search icon" },
     });
   };
+
+  // const [phoneIconHovered, setIconHovered] = useState(false)
+  // const onMouseOverPhoneIconHandler = () => {
+  //   setIconHovered(true)
+  // }
+  // const onMouseLeavePhoneIconHandler = () => {
+  //   setIconHovered(false)
+  // }
   return (
     <header>
       <nav className={style.navMobile}>
@@ -118,7 +134,9 @@ function Header() {
                   type="button"
                   onClick={burgerHandler}
                   onBlur={burgerBlurHandler}
-                  className={burgerMenuOpened ? style.hoverClass : ""}
+                  className={`${burgerMenuOpened ? style.hoverClass : ""} ${
+                    burgerMenuOpened ? style.burgerTriangle : ""
+                  }`}
                   ref={burgerButtonRef}
                 >
                   <Burger />
@@ -130,7 +148,7 @@ function Header() {
                   onClick={findMobileHandler}
                   className={style.findButton}
                 >
-                  <Find />
+                  <Find className={style.findSvgMobile}/>
                 </button>
               </li>
             </ul>
@@ -145,10 +163,12 @@ function Header() {
               type="button"
               onClick={phoneMobileHandler}
               onBlur={phoneBlurHandler}
-              className={phoneModalOpened ? style.hoverClass : ""}
+              className={`${phoneModalOpened ? style.hoverClass : ""} ${
+                phoneModalOpened ? style.phoneTriangle : ""
+              }`}
               ref={phoneButtonRef}
             >
-              <Phone />
+              <Phone  className={style.phoneSvgMobile}/>
             </button>
           </li>
         </ul>
@@ -169,6 +189,9 @@ function Header() {
                   className={`${style.objectsButton} ${
                     burgerMenuOpened ? style.objectsButtonClicked : ""
                   }`}
+                  onClick={burgerHandler}
+                  onBlur={burgerBlurHandler}
+                  ref={burgerButtonDesktopRef}
                 >
                   Приміщення
                 </button>
@@ -178,15 +201,25 @@ function Header() {
           <li className={style.lastUpperDesktopLi}>
             <ul className={style.lastInnerUlDesktopLi}>
               <li>
-                <button type="button" className={style.desktopIconButon}>
-                  <Phone h={22} w={22} />
+                <button
+                  type="button"
+                  className={`${style.desktopIconButon} ${
+                    phoneModalOpened ? style.hoverClass : ""
+                  }`}
+                  onClick={phoneMobileHandler}
+                  onBlur={phoneBlurHandler}
+                  ref={phoneButtonDesktopRef}
+                  // onMouseOver={onMouseOverPhoneIconHandler}
+                  // onMouseLeave={onMouseLeavePhoneIconHandler}
+                >
+                  <Phone className={style.phoneSvg} />
                 </button>
               </li>
               <hr className={style.hrBetweenIcons} />
               <li>
                 <a href="./find">
                   <button type="button" className={style.desktopIconButon}>
-                    <Find h={22} w={22} />
+                    <Find className={style.findSvg} />
                     <p className={style.findText}>
                       Знайдіть потрібний об&apos;єкт
                     </p>

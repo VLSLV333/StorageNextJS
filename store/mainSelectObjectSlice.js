@@ -23,13 +23,6 @@ const objectsArray = [
   },
 ];
 
-// const initialState = {
-//   link: "./find/office",
-//   svg: "office",
-//   text: "Офіси",
-//   bg: "Офіси",
-// };
-// const initialState = {selectedNow: objectsArray[0], previouslySelected: null}
 const initialState = { selectedNow: objectsArray[0] };
 
 const mainSelectObjectSlice = createSlice({
@@ -39,9 +32,6 @@ const mainSelectObjectSlice = createSlice({
     setSelectedObject: (state, { payload }) => {
       state.selectedNow = objectsArray[payload];
     },
-    // setPreviouslySelectedObject: (state, { payload }) => {
-    //   state.previouslySelected = objectsArray[payload]
-    // },
   },
 });
 

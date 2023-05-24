@@ -1,11 +1,10 @@
 .modal {
   position: absolute;
-  top: 0px;
+  top: 4.87rem;
   left: 13px;
   z-index: 4;
   background-color: white;
   max-width: 324px;
-  margin: 4.8rem 0 0;
   padding: 1rem 1.5rem;
   border-radius: 4px 1rem 1rem 1rem;
   box-shadow: 0px 5px 30px rgb(153, 153, 153);
@@ -43,15 +42,6 @@
     margin: 0 0 1.5rem;
   }
 
-  &::before {
-    content: '';
-    top: -1.2rem;
-    left: 0.3rem;
-    position: absolute;
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent rgb(255, 255, 255);
-  }
   & .bottomLine {
     display: none;
   }
@@ -77,7 +67,7 @@
   .modal {
     max-width: 672px;
     width: 672px;
-    top: 67px;
+    top: 5.3rem;
     padding: 3rem 2.5rem 0;
     &::before {
       display: none;
@@ -106,7 +96,7 @@
     & .textContainer p:after,
     & .textContainer p:before {
       border-right: 2px solid;
-      content: '';
+      content: "";
       display: block;
       height: 8px;
       margin-top: -6px;
@@ -148,14 +138,28 @@
 
     & .bottomLine {
       position: relative;
-      right: 2.53rem;
+      right: 2.5rem;
       display: block;
-      width: 113.6%;
+      width: 113.5%;
       background: #f4f3f0;
       height: 2rem;
       z-index: 4;
       border-bottom-right-radius: 1rem;
       border-bottom-left-radius: 1rem;
     }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .modal {
+    top: 8.5rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .modal {
+    margin: 0 auto;
+    left: 0;
+    right: 37rem;
   }
 }
