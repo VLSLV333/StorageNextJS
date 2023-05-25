@@ -1,7 +1,10 @@
 .textAndFindContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .xIcon:hover {
-    opacity: 0.7;
+  opacity: 0.7;
+}
+.objectsCardsContainer {
+  background-color: #f2f2f2;
 }
