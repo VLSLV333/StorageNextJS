@@ -24,13 +24,30 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  & .findButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   & .findButton:active {
     background-color: #7ed957;
     border-radius: 50px;
+    & .findSvgMobile {
+      display: none;
+    }
+    & .findWhiteSvgMobile {
+      display: block;
+    }
   }
   & .findButton:hover {
     background-color: #7ed957;
     border-radius: 50px;
+    & .findSvgMobile {
+      display: none;
+    }
+    & .findWhiteSvgMobile {
+      display: block;
+    }
   }
 }
 .logoHeaderMobile {
@@ -56,9 +73,19 @@
   height: 22px;
   width: 22px;
 }
+.findWhiteSvg {
+  height: 22px;
+  width: 22px;
+  display: none;
+}
 .findSvgMobile {
   height: 18px;
   width: 18px;
+}
+.findWhiteSvgMobile {
+  height: 18px;
+  width: 18px;
+  display: none;
 }
 .phoneSvgMobile {
   height: 18px;
@@ -123,7 +150,7 @@
 
 .burgerTriangle {
   &::before {
-    content: '';
+    content: "";
     top: 3.65rem;
     left: 1.2rem;
     position: absolute;
@@ -135,7 +162,7 @@
 }
 .phoneTriangle {
   &::before {
-    content: '';
+    content: "";
     top: 3.65rem;
     right: 1.77rem;
     position: absolute;
@@ -158,6 +185,17 @@
 .desktopIconButon {
   width: 40px;
   height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & .phoneWhiteSvg {
+    display: none;
+  }
+  & .phoneWhiteOpenedSvg {
+    display: block;
+    height: 22px;
+    width: 22px;
+  }
 }
 
 .hrBetweenIcons {
@@ -168,6 +206,20 @@
   background-color: #7ed957;
   color: white;
   border-radius: 50px;
+  & .phoneSvg {
+    display: none;
+  }
+  & .phoneWhiteSvg {
+    display: block;
+    height: 22px;
+    width: 22px;
+  }
+  & .findSvg {
+    display: none;
+  }
+  & .findWhiteSvg {
+    display: block;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -193,6 +245,20 @@
   .desktopIconButon {
     width: 55px;
     height: 55px;
+    & .phoneWhiteOpenedSvg {
+      height: 28px;
+      width: 28px;
+    }
+  }
+  .desktopIconButon:hover {
+    & .phoneWhiteSvg {
+      height: 28px;
+      width: 28px;
+    }
+    & .findWhiteSvg {
+      height: 28px;
+      width: 28px;
+    }
   }
   .phoneSvg {
     height: 28px;
@@ -239,7 +305,7 @@
   .ul {
     justify-content: center;
   }
-  .ul li:last-child{
+  .ul li:last-child {
     display: none;
   }
   .logoHeaderMobile {

@@ -134,6 +134,15 @@
     border-radius: 8px;
     border: 1px solid rgb(217, 219, 221);
   }
+  & input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  & input::-webkit-outer-spin-button,
+  & input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
   & input:focus + span,
   input:not(:placeholder-shown) + span {
@@ -231,6 +240,9 @@
       border-radius: 8px;
       font-size: 1rem;
       font-weight: 700;
+    }
+    & .hiddenLoopButton {
+      display: none;
     }
   }
 }

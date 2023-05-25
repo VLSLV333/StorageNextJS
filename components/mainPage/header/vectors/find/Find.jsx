@@ -1,8 +1,6 @@
-function Find({ h = 16, w = 16, className }) {
+function Find({ className }) {
   return (
     <svg
-      // width={w}
-      // height={h}
       viewBox="0 0 18 17"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

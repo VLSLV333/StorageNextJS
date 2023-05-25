@@ -22,6 +22,10 @@ import Find from "./vectors/find/Find";
 import Phone from "./vectors/phone/Phone";
 import Logo from "./vectors/logo/Logo";
 
+import BurgerWhite from "./vectors/burger/BurgerWhite";
+import PhoneWhite from "./vectors/phone/PhoneWhite";
+import FindWhite from "./vectors/find/FindWhite";
+
 import style from "./Header.module.scss";
 
 function Header() {
@@ -109,7 +113,7 @@ function Header() {
   };
 
   const findMobileHandler = () => {
-    dispatch(toggleBlur(2));
+    // dispatch(toggleBlur(2));
     router.push({
       pathname: "/find",
       query: { keyword: "came from search icon" },
@@ -139,7 +143,8 @@ function Header() {
                   }`}
                   ref={burgerButtonRef}
                 >
-                  <Burger />
+                  {!burgerMenuOpened && <Burger />}
+                  {burgerMenuOpened && <BurgerWhite />}
                 </button>
               </li>
               <li>
@@ -148,7 +153,8 @@ function Header() {
                   onClick={findMobileHandler}
                   className={style.findButton}
                 >
-                  <Find className={style.findSvgMobile}/>
+                  <Find className={style.findSvgMobile} />
+                  <FindWhite className={style.findWhiteSvgMobile} />
                 </button>
               </li>
             </ul>
@@ -168,7 +174,8 @@ function Header() {
               }`}
               ref={phoneButtonRef}
             >
-              <Phone  className={style.phoneSvgMobile}/>
+              {!phoneModalOpened && <Phone className={style.phoneSvgMobile} />}
+              {phoneModalOpened && <PhoneWhite className={style.phoneSvgMobile} />}
             </button>
           </li>
         </ul>
@@ -209,10 +216,10 @@ function Header() {
                   onClick={phoneMobileHandler}
                   onBlur={phoneBlurHandler}
                   ref={phoneButtonDesktopRef}
-                  // onMouseOver={onMouseOverPhoneIconHandler}
-                  // onMouseLeave={onMouseLeavePhoneIconHandler}
                 >
-                  <Phone className={style.phoneSvg} />
+                  {!phoneModalOpened && <Phone className={style.phoneSvg} />}
+                  {!phoneModalOpened && <PhoneWhite className={style.phoneWhiteSvg} />}
+                  {phoneModalOpened && <PhoneWhite className={style.phoneWhiteOpenedSvg} />}
                 </button>
               </li>
               <hr className={style.hrBetweenIcons} />
@@ -220,6 +227,7 @@ function Header() {
                 <a href="./find">
                   <button type="button" className={style.desktopIconButon}>
                     <Find className={style.findSvg} />
+                    <FindWhite className={style.findWhiteSvg} />
                     <p className={style.findText}>
                       Знайдіть потрібний об&apos;єкт
                     </p>
