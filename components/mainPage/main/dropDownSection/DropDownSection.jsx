@@ -20,8 +20,8 @@ export default function DropDownSection({ w, m }) {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const linkInStorage = useSelector(
-    (state) => state.mainSelectObject.selectedNow.link
+  const queryInStorage = useSelector(
+    (state) => state.mainSelectObject.selectedNow.query
   );
   const svgInStorage = useSelector(
     (state) => state.mainSelectObject.selectedNow.svg
@@ -63,8 +63,8 @@ export default function DropDownSection({ w, m }) {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     router.push({
-      pathname: linkInStorage,
-      query: { keyword: "given m2" },
+      pathname: './find',
+      query: queryInStorage,
     });
   };
 

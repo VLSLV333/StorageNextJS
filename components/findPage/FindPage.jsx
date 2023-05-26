@@ -1,20 +1,29 @@
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { useState } from 'react';
+import { useRouter } from 'next/router'
 
-import { faX } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from "react";
 
-import ObjectCard from './objectCard/ObjectCard';
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-// import PageBlur from '../wholePageBlur/PageBlur';
-// import ModalMeinMenu from '../modalMainMenu/ModalMainMenu';
-// import ModalFind from '../modalFind/ModalFind';
+import ObjectCard from "./objectCard/ObjectCard";
 
-import style from './FindPage.module.scss';
+import PageBlur from "../wholePageBlur/PageBlur";
+import ModalMeinMenu from "../modalMainMenu/ModalMainMenu";
+import ModalPhone from "../modalPhone/ModalPhone";
+
+import style from "./FindPage.module.scss";
 
 export default function Find() {
-  const [filterInputValue, setFilterInputValue] = useState('');
+  const router = useRouter()
+  const whatIsRented = router.query.whatIsRented;
+
+  const openBugerMenu = useSelector(state => state.burgerMenu.openBurgerMenu)
+  const openBlur = useSelector(state => state.pageBlur.pageBlur)
+  const openPhoneModal = useSelector(state => state.phoneModal.showPhoneModal)
+
+  const [filterInputValue, setFilterInputValue] = useState("");
   const [showXIcon, setShowXIcon] = useState(false);
 
   const filterInputHandler = (event) => {
@@ -22,10 +31,13 @@ export default function Find() {
     if (event.target.value.trim().length > 0) {
       setShowXIcon(true);
     }
+    if (event.target.value.trim().length === 0) {
+      setShowXIcon(false);
+    }
   };
 
   const xCloseHandler = () => {
-    setFilterInputValue('');
+    setFilterInputValue("");
     setShowXIcon(false);
   };
 
@@ -35,7 +47,7 @@ export default function Find() {
         <div className={style.imitateBigInput}>
           <button
             type="button"
-            onClick={() => console.log('click')}
+            onClick={() => console.log("click")}
             className={style.textButton}
           >
             m2/price
@@ -55,7 +67,7 @@ export default function Find() {
           )}
         </div>
         <div>
-          <h2>Оренда CHANGEFROMLINK в Білій Церкві</h2>
+          <h2>Оренда {whatIsRented} в Білій Церкві</h2>
           <button type="button">Усі</button>
           <button type="button">Піонерська</button>
           <button type="button">Вокзальна</button>
@@ -64,7 +76,12 @@ export default function Find() {
       </section>
       <div className={style.objectsCardsContainer}>
         <ObjectCard />
+        <ObjectCard />
+        <ObjectCard />
       </div>
+      {openBlur && <PageBlur />}
+      {openBugerMenu && <ModalMeinMenu />}
+      {openPhoneModal && <ModalPhone />}
     </>
   );
 }

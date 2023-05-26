@@ -2,9 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const objectsArray = [
   {
-    link: "./find/office",
+    // link: "./find/office",
     svg: "office",
     text: "Офіси",
+    query: { whatIsRented: 'офісів' },
   },
   {
     link: "./find/wareHouse",
