@@ -1,30 +1,47 @@
 import { useSelector } from 'react-redux';
 
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-import { useState } from "react";
+import { useState, useRef } from 'react';
 
-import { faX } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import ObjectCard from "./objectCard/ObjectCard";
+import ObjectCard from './objectCard/ObjectCard';
 
-import PageBlur from "../wholePageBlur/PageBlur";
-import ModalMeinMenu from "../modalMainMenu/ModalMainMenu";
-import ModalPhone from "../modalPhone/ModalPhone";
+import PageBlur from '../wholePageBlur/PageBlur';
+import ModalMeinMenu from '../modalMainMenu/ModalMainMenu';
+import ModalPhone from '../modalPhone/ModalPhone';
 
-import style from "./FindPage.module.scss";
+import ArrowDown from '../mainPage/main/vectors/arrowDown/ArrowDown';
+import ArrowUp from '../mainPage/main/vectors/arrowUp/ArrowUp';
+
+import style from './FindPage.module.scss';
 
 export default function Find() {
-  const router = useRouter()
-  const whatIsRented = router.query.whatIsRented;
+  // const visibleButtonRef = useRef(null)
+  const hiddenFilterOptionRef = useRef(null);
 
-  const openBugerMenu = useSelector(state => state.burgerMenu.openBurgerMenu)
-  const openBlur = useSelector(state => state.pageBlur.pageBlur)
-  const openPhoneModal = useSelector(state => state.phoneModal.showPhoneModal)
+  const router = useRouter();
+  const {
+    query: { whatIsRented },
+  } = router;
 
-  const [filterInputValue, setFilterInputValue] = useState("");
+  const openBugerMenu = useSelector((state) => state.burgerMenu.openBurgerMenu);
+  const openBlur = useSelector((state) => state.pageBlur.pageBlur);
+  const openPhoneModal = useSelector(
+    (state) => state.phoneModal.showPhoneModal
+  );
+
+  const [filterInputValue, setFilterInputValue] = useState('');
   const [showXIcon, setShowXIcon] = useState(false);
+
+
+
+  const [visibleFilterOption, setVisibleFilterOption] = useState('m2');
+  const [alternativeFilterOption, setAlternativeFilterOption] =
+    useState('ціна');
+  const [openedFilterModal, setFilterModal] = useState(false);
 
   const filterInputHandler = (event) => {
     setFilterInputValue(event.target.value);
@@ -37,8 +54,19 @@ export default function Find() {
   };
 
   const xCloseHandler = () => {
-    setFilterInputValue("");
+    setFilterInputValue('');
     setShowXIcon(false);
+  };
+
+  const hiddenFilterValueHandler = (e) => {
+    setAlternativeFilterOption(visibleFilterOption);
+    setVisibleFilterOption(e.target.innerText);
+    setFilterModal(false);
+    console.log(visibleFilterOption[1])
+  };
+
+  const visibleFilterButtonHandler = () => {
+    setFilterModal((state) => !state);
   };
 
   return (
@@ -47,13 +75,17 @@ export default function Find() {
         <div className={style.imitateBigInput}>
           <button
             type="button"
-            onClick={() => console.log("click")}
+            onClick={visibleFilterButtonHandler}
             className={style.textButton}
           >
-            m2/price
+            <span className={style.moveText}>{visibleFilterOption}</span>
           </button>
+          {!openedFilterModal && (
+            <ArrowDown className={style.arrowDown} color="#7ed957" />
+          )}
+          {openedFilterModal && <ArrowUp className={style.arrowUp} />}
           <input
-            type="text"
+            type="number"
             placeholder="фільтр"
             value={filterInputValue}
             onChange={filterInputHandler}
@@ -73,6 +105,18 @@ export default function Find() {
           <button type="button">Вокзальна</button>
           <button type="button">Леваневського</button>
         </div>
+        {openedFilterModal && (
+          <div className={style.filterModal}>
+            <button
+              ref={hiddenFilterOptionRef}
+              id="ціна"
+              onClick={hiddenFilterValueHandler}
+              type="button"
+            >
+              {alternativeFilterOption}
+            </button>
+          </div>
+        )}
       </section>
       <div className={style.objectsCardsContainer}>
         <ObjectCard />
