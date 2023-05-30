@@ -1,9 +1,10 @@
-export default function ArrowUp({ className, color = 'black' }) {
+export default function ArrowUp({ className, box = [0, 0, 20, 11], color = "black" }) {
+  const [a, b, c, d] = box;
   return (
     <svg
       width="15"
       height="7"
-      viewBox="0 0 20 11"
+      viewBox={`${a} ${b} ${c} ${d}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}

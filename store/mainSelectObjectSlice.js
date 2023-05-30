@@ -5,7 +5,7 @@ const objectsArray = [
     // link: "./find/office",
     svg: 'office',
     text: 'Офіси',
-    query: { whatIsRented: 'офісів' },
+    query: { whatIsRented: 'Офіси' },
   },
   {
     link: './find/wareHouse',

@@ -7,7 +7,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import style from "./ObjectCard.module.scss";
 
-export default function ObjectCard() {
+export default function ObjectCard({
+  link,
+  m2,
+  price,
+  exactAddres,
+  description,
+  heading,
+}) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   const plusClickHandler = () => {
@@ -16,23 +23,22 @@ export default function ObjectCard() {
   const minusClickHandler = () => {
     setShowMoreInfo(false);
   };
+  const costPerSize = (price / m2).toFixed(0);
   return (
     <div className={style.wholeCard}>
       <div className={style.imgContainer}>
         <Image
-          src="https://images.unsplash.com/photo-1684779847639-fbcc5a57dfe9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80"
+          src={link}
           alt="work"
           style={{ objectFit: "cover" }}
           fill
           priority
-          // width={100}
-          // height={100}
         />
       </div>
       <div className={style.everythingWithoutImage}>
         <div className={style.descriptionContainer}>
           <div className={style.descriptionHeaderIcons}>
-            <h2>Вулиця Січневий Прорив 38А, Біла Церква, 09100</h2>
+            <h2>{exactAddres}</h2>
             {!showMoreInfo && (
               <FontAwesomeIcon
                 icon={faPlus}
@@ -48,19 +54,15 @@ export default function ObjectCard() {
               />
             )}
           </div>
-          {showMoreInfo && (
-            <p>
-              Приємний ремонт / Закрита територія / Цілодобова охорона / Зона
-              паркування / Асфальтована територія / Електроенергія / Каналізація
-              / Кондиціонер
-            </p>
-          )}
+          {showMoreInfo && <p>{description}</p>}
         </div>
         <div className={style.priceContainer}>
-          <h3>Офіс – 20 м2</h3>
+          <h3>
+            {heading} – {m2} м2
+          </h3>
           <div className={style.priceSplited}>
-            <p className={style.price}>1000 грн</p>
-            <p className={style.priceSmall}>50 грн/м2</p>
+            <p className={style.price}>{price} грн</p>
+            <p className={style.priceSmall}>{costPerSize} грн/м2</p>
           </div>
         </div>
         <button type="button">Детальніше</button>
