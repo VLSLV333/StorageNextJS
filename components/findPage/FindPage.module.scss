@@ -3,10 +3,6 @@
   flex-direction: column;
   padding: 0.7rem 1.4rem 1.7rem;
   position: relative;
-  // & h2 {
-  //   margin: 0 auto;
-  // }
-
   & .imitateBigInput {
     height: 38px;
     border-radius: 25px;
@@ -16,7 +12,6 @@
     display: flex;
     align-items: center;
     & .textButton {
-      // border: 1px solid red;
       border-top-left-radius: 15px;
       border-bottom-left-radius: 20px;
       height: 37.9px;
@@ -79,6 +74,7 @@
       border: 1px solid #eaeaea;
       display: inline-flex;
       border-radius: 10px;
+      margin-bottom: 1.5rem;
       & button {
         margin-right: 0.5rem;
         padding: 0.2rem 0.4rem;
@@ -91,6 +87,14 @@
         box-shadow: 0 0 0 1px #99ba14, inset 0 0 0 1px #99ba14;
       }
     }
+    & .textFilterResult {
+      & .borderForText {
+        border: 1px solid #99ba14;
+        padding: 0.3rem 0.7rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+      }
+    }
   }
 }
 .xIcon:hover {
@@ -98,6 +102,11 @@
 }
 .objectsCardsContainer {
   background-color: #f2f2f2;
+}
+.NoObjectsFound {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 2rem 0;
 }
 
 @media only screen and (max-width: 355px) {
@@ -111,6 +120,33 @@
       & .buttonsContainer {
         & button {
           font-size: 12px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .buttonsAndFilterResult {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .textAndFindContainer {
+    padding: 0.7rem 3rem 1.7rem;
+    & .heddingAndButtons {
+      & h2 {
+        font-size: 1.5rem;
+      }
+      & .textFilterResult {
+        & .borderForText {
+          padding: 0.4rem 0.7rem;
+        }
+      }
+      & .buttonsContainer {
+        margin-bottom: 0;
+        & button {
+          padding: 0.3rem 0.7rem;
         }
       }
     }
