@@ -116,6 +116,11 @@
 }
 @media only screen and (max-width: 340px) {
   .textAndFindContainer {
+    & input {
+      &::placeholder {
+        font-size: 0.8rem;
+      }
+    }
     & .heddingAndButtons {
       & .buttonsContainer {
         & button {
@@ -134,6 +139,28 @@
   }
   .textAndFindContainer {
     padding: 0.7rem 3rem 1.7rem;
+    & .imitateBigInput {
+      margin: 0 auto 1.5rem;
+      width: 672px;
+      gap: 9rem;
+      & .textButton {
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 20px;
+        height: 37.9px;
+        width: 60px;
+        font-size: 0.9rem;
+      }
+    }
+    & .filterModal {
+      font-size: 0.9rem;
+      & button {
+        font-size: 1rem;
+      }
+    }
+    & input {
+      padding: 0 1rem 0 4rem;
+      font-size: 0.9rem;
+    }
     & .heddingAndButtons {
       & h2 {
         font-size: 1.5rem;
@@ -141,12 +168,14 @@
       & .textFilterResult {
         & .borderForText {
           padding: 0.4rem 0.7rem;
+          font-size: 1rem;
         }
       }
       & .buttonsContainer {
         margin-bottom: 0;
         & button {
           padding: 0.3rem 0.7rem;
+          font-size: 0.9rem;
         }
       }
     }
