@@ -55,17 +55,21 @@ export default function ObjectCard({
             )}
           </div>
           {showMoreInfo && <p>{description}</p>}
+          <p className={style.descriptionPC}>{description}</p>
         </div>
-        <div className={style.priceContainer}>
-          <h3>
-            {heading} – {m2} м2
-          </h3>
-          <div className={style.priceSplited}>
-            <p className={style.price}>{price} грн</p>
-            <p className={style.priceSmall}>{costPerSize} грн/м2</p>
+        <hr  className={style.descriptionPCHr}></hr>
+        <div className={style.cardRightSide}>
+          <div className={style.priceContainer}>
+            <h3>
+              {heading} – {m2} м2
+            </h3>
+            <div className={style.priceSplited}>
+              <p className={style.price}>{price} грн</p>
+              <p className={style.priceSmall}>{costPerSize} грн/м2</p>
+            </div>
           </div>
+          <button type="button" className={style.detailsButton}>Детальніше</button>
         </div>
-        <button type="button">Детальніше</button>
       </div>
     </div>
   );

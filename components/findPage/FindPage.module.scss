@@ -107,6 +107,8 @@
   background-color: #f2f2f2;
   text-align: center;
   padding: 2rem 0;
+  padding-bottom: 55vh;
+  padding-top: 3rem;
 }
 
 @media only screen and (max-width: 355px) {
@@ -150,6 +152,15 @@
         width: 60px;
         font-size: 0.9rem;
       }
+      & .moveText {
+        right: 0rem;
+      }
+      & .arrowDown {
+        left: 3.5rem;
+      }
+      & .arrowUp {
+        left: 3.5rem;
+      }
     }
     & .filterModal {
       font-size: 0.9rem;
@@ -179,5 +190,102 @@
         }
       }
     }
+    & .filterModal {
+      left: 0;
+      right: 37rem;
+      margin: 0 auto;
+      width: 70px;
+      & button {
+        height: 40px;
+        width: 70px;
+        background-color: #7ed957;
+        color: white;
+        font-weight: 700;
+      }
+    }
+  }
+  .NoObjectsFound {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .textAndFindContainer {
+    padding: 0.7rem 4.7rem 1.7rem 3rem;
+    & .filterModal {
+      right: 39rem;
+    }
+  }
+  .NoObjectsFound {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .textAndFindContainer {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0.7rem 6.3rem 1.7rem 3rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .textAndFindContainer {
+    & .imitateBigInput {
+      height: 48px;
+      & .moveText {
+        right: 0rem;
+        bottom: 0.1rem;
+        font-size: 1.1rem;
+      }
+      & .arrowDown {
+        top: 1rem;
+        left: 3.5rem;
+        height: 13px;
+        width: 20px;
+      }
+      & .arrowUp {
+        top: 1rem;
+        left: 3.5rem;
+        height: 13px;
+        width: 20px;
+      }
+    }
+    & .heddingAndButtons {
+      & h2 {
+        font-size: 2rem;
+      }
+      & .buttonsContainer {
+        & button {
+          font-size: 1.1rem;
+        }
+      }
+      & .textFilterResult {
+        & .borderForText {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    & input {
+      font-size: 1.1rem;
+      height: 46px;
+      padding: 0 2rem 0 2.2rem;
+    }
+    & .xIcon {
+      font-size: 1.35rem;
+      top: 25%;
+      right: 1.3rem;
+    }
+    & .filterModal {
+      right: 40.5rem;
+      top: 3.7rem;
+      & button {
+        width: 80px;
+      }
+    }
+  }
+  .NoObjectsFound {
+    font-size: 1.5rem;
+    line-height: 1.7;
   }
 }
