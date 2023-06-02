@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import Image from "next/image";
 
+import { useRouter } from "next/navigation";
+
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -14,7 +16,10 @@ export default function ObjectCard({
   exactAddres,
   description,
   heading,
+  id,
+  prior,
 }) {
+  const router = useRouter();
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   const plusClickHandler = () => {
@@ -24,6 +29,14 @@ export default function ObjectCard({
     setShowMoreInfo(false);
   };
   const costPerSize = (price / m2).toFixed(0);
+
+  const buttonHandler = () => {
+    router.push({
+      pathname: `./find/${id}`,
+      // query: { ...queryInStorage, size: inputValue },
+    });
+  };
+
   return (
     <div className={style.wholeCard}>
       <div className={style.imgContainer}>
@@ -32,7 +45,11 @@ export default function ObjectCard({
           alt="work"
           style={{ objectFit: "cover" }}
           fill
-          priority
+          sizes="(max-width: 502px) 93.7vw, (max-width: 1023px) 470px, (max-width: 1279px) 70vw,  430px"
+          // sizes=""
+          priority={prior}
+          // placeholder="blur"
+          // blurDataURL={link}
         />
       </div>
       <div className={style.everythingWithoutImage}>
@@ -57,7 +74,7 @@ export default function ObjectCard({
           {showMoreInfo && <p>{description}</p>}
           <p className={style.descriptionPC}>{description}</p>
         </div>
-        <hr  className={style.descriptionPCHr}></hr>
+        <hr className={style.descriptionPCHr}></hr>
         <div className={style.cardRightSide}>
           <div className={style.priceContainer}>
             <h3>
@@ -68,7 +85,13 @@ export default function ObjectCard({
               <p className={style.priceSmall}>{costPerSize} грн/м2</p>
             </div>
           </div>
-          <button type="button" className={style.detailsButton}>Детальніше</button>
+          <button
+            type="button"
+            className={style.detailsButton}
+            onClick={buttonHandler}
+          >
+            Детальніше
+          </button>
         </div>
       </div>
     </div>

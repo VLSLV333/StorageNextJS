@@ -277,7 +277,7 @@ export default function Find() {
       </section>
       <div className={style.objectsCardsContainer}>
         {!noObjectsFound &&
-          objectsForPage.map((object) => (
+          objectsForPage.map((object, objectId) => (
             <ObjectCard
               key={object.id}
               link={object.link}
@@ -286,6 +286,8 @@ export default function Find() {
               exactAddres={object.exactAddres}
               description={object.description}
               heading={textForCardHeading}
+              id={object.id}
+              prior={objectId === 0 ? true : false}
             />
           ))}
       </div>

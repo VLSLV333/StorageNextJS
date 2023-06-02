@@ -144,16 +144,16 @@
     & .imitateBigInput {
       margin: 0 auto 1.5rem;
       width: 672px;
-      gap: 9rem;
+      gap: 7rem;
       & .textButton {
         border-top-left-radius: 15px;
         border-bottom-left-radius: 20px;
         height: 37.9px;
-        width: 60px;
+        width: 75px;
         font-size: 0.9rem;
       }
       & .moveText {
-        right: 0rem;
+        right: 0.5rem;
       }
       & .arrowDown {
         left: 3.5rem;
@@ -233,22 +233,26 @@
   .textAndFindContainer {
     & .imitateBigInput {
       height: 48px;
+      gap: 6.5rem;
       & .moveText {
-        right: 0rem;
+        right: 0.7rem;
         bottom: 0.1rem;
         font-size: 1.1rem;
       }
       & .arrowDown {
         top: 1rem;
-        left: 3.5rem;
+        left: 4rem;
         height: 13px;
         width: 20px;
       }
       & .arrowUp {
         top: 1rem;
-        left: 3.5rem;
+        left: 4rem;
         height: 13px;
         width: 20px;
+      }
+      & .textButton {
+        width: 100px;
       }
     }
     & .heddingAndButtons {
