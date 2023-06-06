@@ -1,0 +1,214 @@
+.sectionMainContainer {
+}
+
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  height: 100%;
+  width: 4rem;
+  visibility: hidden;
+  & .xIcon {
+    color: white;
+    font-size: 2.5rem;
+  }
+}
+
+.arrowLeft {
+  top: 0;
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0),
+    rgba(0, 4, 51, 0.6)
+  );
+}
+.arrowRight {
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 4, 51, 0.6)
+  );
+}
+
+.imagesAndModalElementsContainer {
+  height: 435px;
+  position: relative;
+  display: none;
+  max-width: 1440px;
+  max-width: 1340px;
+  margin: 0 auto;
+  &:hover .arrowLeft,
+  &:hover .arrowRight {
+    visibility: visible;
+  }
+}
+
+.imageContainer {
+  height: 435px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.allText {
+  padding: 1.5rem 1.3rem 3rem;
+  max-width: 1380px;
+  margin: 0 auto;
+  & hr {
+    border: 1px solid #dedee2;
+  }
+  & h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  & .firstLine {
+    margin-bottom: 0.7rem;
+  }
+  & .secondLine {
+    margin-bottom: 1.2rem;
+  }
+  & .thirdLine {
+    margin: 1.2rem 0;
+  }
+  & .forthLine {
+    margin: 1.2rem 0;
+  }
+  & .squareMettersBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    & p {
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+  }
+  & .smallHead {
+    display: block;
+    color: #6c6d7f;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+  }
+  & .bigHead {
+    font-size: 1.15rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #6c6d7f;
+  }
+  & .textIcon {
+    font-size: 2.2rem;
+    color: #7ed957;
+    margin-right: 1.7rem;
+  }
+  & .officeSvg {
+    height: 37px;
+    width: 37px;
+    margin-right: 1.2rem;
+  }
+  & ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    & li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    & li::before {
+      background-color: #7ed957;
+      border-radius: 100%;
+      content: "";
+      display: inline-block;
+      height: 8px;
+      width: 8px;
+      position: absolute;
+      top: 4px;
+      left: 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .allText {
+    padding: 1.5rem 3.5rem 3rem 2.5rem;
+    & ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      & li {
+        flex-basis: 50%;
+      }
+    }
+    & .squareMettersBlock {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    & .textIcon {
+      margin-right: 1.2rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .imagesAndModalElementsContainer {
+    display: block;
+  }
+  .allText {
+    & h2 {
+      font-size: 1.5rem;
+    }
+    & .smallHead {
+      font-size: 1.2rem;
+    }
+    & .bigHead {
+      font-size: 1.2rem;
+    }
+    & p {
+      font-size: 1.1rem;
+    }
+    & ul {
+      & li {
+        flex-basis: 33%;
+        font-size: 1.1rem;
+      }
+    }
+    & .squareMettersBlock {
+      flex-direction: row;
+      justify-content: space-between;
+      & p {
+        font-size: 1.4rem;
+      }
+    }
+    & .textIcon {
+      margin-right: 1.2rem;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .imagesAndModalElementsContainer {
+    height: 500px;
+  }
+  .imageContainer {
+    height: 500px;
+  }
+  .allText {
+    padding: 1.5rem 3.5rem 3rem 1.2rem;
+    & h2 {
+      font-size: 2rem;
+    }
+    & .textIcon {
+      font-size: 3rem;
+    }
+    & .officeSvg {
+      height: 45px;
+      width: 45px;
+    }
+  }
+}

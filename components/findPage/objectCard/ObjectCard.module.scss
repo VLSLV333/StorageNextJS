@@ -18,7 +18,7 @@
       border: 1px solid #eaeaea;
       border-radius: 4px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.06);
-      max-width: 170px;
+      max-width: 184px;
       padding: 0.5rem;
       margin-bottom: 1rem;
       & h3 {
@@ -82,7 +82,7 @@
     }
     & .everythingWithoutImage {
       & .priceContainer {
-        max-width: 190px;
+        max-width: 222px;
         & h3 {
           font-size: 1rem;
         }
@@ -121,7 +121,7 @@
       & .priceContainer {
         border: none;
         box-shadow: none;
-        padding: 0 1.5rem 1.5rem 0;
+        padding: 0 0.7rem 1.5rem 0;
         & .priceSplited {
           flex-direction: column;
         }

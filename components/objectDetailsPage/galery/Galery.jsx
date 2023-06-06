@@ -13,7 +13,7 @@ const Galery = ({ photosArray }) => {
             style={{ objectFit: "cover" }}
             height={375}
             width={290}
-            // priority={photoIndex === 0}
+            priority={photoIndex === 0}
             key={photo}
           />
         ))}

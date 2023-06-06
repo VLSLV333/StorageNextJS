@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useRouter } from "next/navigation";
 
+import Link from 'next/link';
+
 import { toggleBlur } from "../../../store/pageBlurSlice";
 import {
   showBurgerMenu,
@@ -160,9 +162,9 @@ function Header() {
             </ul>
           </li>
           <li>
-            <a href="./">
+            <Link href="/">
               <Logo className={style.logoHeaderMobile} />
-            </a>
+            </Link>
           </li>
           <li>
             <button
@@ -185,9 +187,9 @@ function Header() {
           <li>
             <ul className={style.navDesktopFirstInnerUl}>
               <li>
-                <a href="./">
+                <Link href="/">
                   <Logo className={style.logoHeaderDesktop} />
-                </a>
+                </Link>
               </li>
               <hr className={style.hr} />
               <li>
@@ -224,7 +226,7 @@ function Header() {
               </li>
               <hr className={style.hrBetweenIcons} />
               <li>
-                <a href="./find">
+                <Link href="./find">
                   <button type="button" className={style.desktopIconButon}>
                     <Find className={style.findSvg} />
                     <FindWhite className={style.findWhiteSvg} />
@@ -232,7 +234,7 @@ function Header() {
                       Знайдіть потрібний об&apos;єкт
                     </p>
                   </button>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
