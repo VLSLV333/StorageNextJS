@@ -1,9 +1,17 @@
-import style from './MainCard.module.scss';
+import Link from "next/link";
 
-export default function MainCard({ children, className }) {
+import style from "./MainCard.module.scss";
+
+export default function MainCard({ children, className, pushTo }) {
   return (
-    <a href="./find" className={`${style.cardComponent} ${className}`}>
+    <Link
+      href={{
+        pathname: "./find",
+        query: { whatIsRented: pushTo },
+      }}
+      className={`${style.cardComponent} ${className}`}
+    >
       {children}
-    </a>
+    </Link>
   );
 }

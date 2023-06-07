@@ -1,0 +1,41 @@
+.test {
+    background-color: rgb(201, 201, 201);
+padding-top: 2rem;
+padding-bottom: 2rem;
+}
+
+.allContentContainer {
+  background-color: rgb(255, 255, 255);
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 0.5rem;
+  & .buttonsContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0.5rem 0 2rem;
+  }
+  & button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  & .officeSvgDesktop {
+    height: 2.1rem;
+    width: 2.1rem;
+  }
+  & .wareHouseSvgDesktop {
+    height: 2.1rem;
+    width: 2.1rem;
+  }
+  & .fridgeSvgDesktop {
+    height: 2.1rem;
+    width: 2.1rem;
+  }
+  & .boxSvgDesktop {
+    height: 2.1rem;
+    width: 2.1rem;
+  }
+}

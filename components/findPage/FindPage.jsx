@@ -81,24 +81,24 @@ export default function Find() {
 
   // let objectsfilteredByCategory = rentObjectsFromDB;
 
-  const [test, setTest] = useState(
-    rentObjectsFromDB.filter((obj) => {
-      console.log(obj);
-      console.log(whatIsRented);
-      return obj.type === whatIsRented;
-    })
-  );
+  // const [test, setTest] = useState(
+  //   rentObjectsFromDB.filter((obj) => {
+  //     console.log(obj);
+  //     console.log(whatIsRented);
+  //     return obj.type === whatIsRented;
+  //   })
+  // );
 
-  useEffect(() => {
-    console.log("changed");
-    setTest(
-      rentObjectsFromDB.filter((obj) => {
-        return obj.type === whatIsRented;
-      })
-    );
-  }, [whatIsRented]);
+  // useEffect(() => {
+  //   console.log("changed");
+  //   setTest(
+  //     rentObjectsFromDB.filter((obj) => {
+  //       return obj.type === whatIsRented;
+  //     })
+  //   );
+  // }, [whatIsRented]);
 
-  console.log(test);
+  // console.log(test);
   // useEffect(() => {
   //   console.log('efec')
   //   if (whatIsRented !== undefined) {

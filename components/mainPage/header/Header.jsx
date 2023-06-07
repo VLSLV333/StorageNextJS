@@ -117,7 +117,7 @@ function Header() {
   const findMobileHandler = () => {
     // dispatch(toggleBlur(2));
     router.push({
-      pathname: "/find",
+      pathname: "./find",
       query: { keyword: "came from search icon" },
     });
   };
