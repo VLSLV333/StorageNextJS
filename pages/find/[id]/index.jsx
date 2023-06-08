@@ -1,12 +1,12 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-import ObjectDetailsPage from "@/components/objectDetailsPage/ObjectDetailsPage";
+import ObjectDetailsPage from '@/components/objectDetailsPage/ObjectDetailsPage';
 
 export default function Find() {
   return (
     <>
       <Head>
-        <title>Опис об'єкту</title>
+        <title>Опис об&apos;єкту</title>
         <meta name="description" content="Опис об'єкту" />
         <meta
           name="viewport"

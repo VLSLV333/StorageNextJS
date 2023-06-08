@@ -1,55 +1,55 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from 'react';
 
-import { faX } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import ObjectCard from "./objectCard/ObjectCard";
+import ObjectCard from './objectCard/ObjectCard';
 
-import PageBlur from "../wholePageBlur/PageBlur";
-import ModalMeinMenu from "../modalMainMenu/ModalMainMenu";
-import ModalPhone from "../modalPhone/ModalPhone";
+import PageBlur from '../wholePageBlur/PageBlur';
+import ModalMeinMenu from '../modalMainMenu/ModalMainMenu';
+import ModalPhone from '../modalPhone/ModalPhone';
 
-import ArrowDown from "../mainPage/main/vectors/arrowDown/ArrowDown";
-import ArrowUp from "../mainPage/main/vectors/arrowUp/ArrowUp";
+import ArrowDown from '../mainPage/main/vectors/arrowDown/ArrowDown';
+import ArrowUp from '../mainPage/main/vectors/arrowUp/ArrowUp';
 
-import style from "./FindPage.module.scss";
+import style from './FindPage.module.scss';
 
-let rentObjectsFromDB = [
+const rentObjectsFromDB = [
   {
-    type: "Офіси",
-    link: "https://images.unsplash.com/photo-1685371863623-effd71822cf2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    type: 'Офіси',
+    link: 'https://lh3.googleusercontent.com/Os5XQa8PZfs0TrAhenjmbHXrA9Ki7QIz6Fjg-bydIYkCjlWipdjceApSSwdgGchGNkRblZVR7MAFA4VhvWj4WOycaiSDOXSqJ-54bYv36rTsFptTHwJEBwpuAU3zvW5hAk_-Hho0-3gNa9CVpHClBriHKaJ6ubmye_6qIrxuO2QRB1cp-JMradchL8HCbTmapYx-6LO8ajn0S4Uu3T2r27GgWB_MXnWgyq-7Y-Zuki2sy4_0aBpXtXTAi567oTx_Fsxf05hm86WRj0FAoFvMOZN49HXg5zZO0I0vfAZnCLTvPeRUp_hVNUudAEEwA5mu-QUC9VM8_WBQ3kqFfI_oa5gkH-oHFzg5QsK6BDfEliAXYkwrY_pawTAvyPLiedhxNnWpbmmgksrwOFVGCLa4MjZ_r_uToDVxfklg9i0T93H5e_KoBrqowECji77EbE5BZ0G9ePdbJBU4FLj_mUVapdQ4dINAFBYtsSvrUSZQu1LNpPmCXxalL7OLFY9XtsW4Z0k11EMLLiW1vwWeu0T_tAkaSP2OJGVjugNrh9a7d5o2EJ87je9Mf9b3CbbmZDQZnkUoAku55LivaOyTNUisIWXWyG3mKV-1pkuMnJInrFax_9CdlTg0efLsxUUaWAu9JTtPDO7zltop8uGYWaDkivcOBgx_eXwg_LlAE1MY_rGfA1uh4yY6uisy4G2xVS5XwEZ8y3IXpVgVn58tY7x29jO3jsaDXi09IrQ4V7gsAQRJQ6Xr9K7WwvUeWyCn7bXVLQf_EELVaF8mS993Q7D1O__UrZPHHw5aZYe6bhaZ40bRRNjUjc-J9yvVr0uIM-TvC76S2EYK4up0r5m0zmqlRveFcsYqhY7QQ6s6UOPYfbMhqiRN6FZhzjj10HPk9MSTX02qy6TPvpgyllFeSZqCjctJW5E8gRgEM7IcvAGV7pqwlU6kQgWCHdKB2YQuEhi88pN5geI3A6X_U_s6U_U5ipHoUXHRK264NSWeFW_mYDIIFTuXLuKSuQ8skM_YcIHViyzSRw5mQ8CP4jNWCMhjADnxOH0xvK3xaz0wTDQzf0a7ltsG5JCX4q5OWtkDMT2KJaC2RrLWpAKLuv1btQmjOzrgcNK_Bp774jEjwYFqbwxCxsjoM1rm6MVqqWWe7lwJ_6kzGKG6ZkoOdQ05w9aygcKlUJIaPj08Otr7_xXNtQ=w1354-h903-s-no?authuser=0',
     m2: 20,
-    location: "pion",
+    location: 'pion',
     price: 1000,
-    exactAddres: "Вулиця Січневий Прорив 38А, Біла Церква, 09100",
+    exactAddres: 'Вулиця Січневий Прорив 38А, Біла Церква, 09100',
     keyFeatures:
-      "Приємний ремонт / Закрита територія / Цілодобова охорона / Зона паркування / Асфальтована територія / Електроенергія / Каналізація / Кондиціонер",
+      'Приємний ремонт / Закрита територія / Цілодобова охорона / Зона паркування / Асфальтована територія / Електроенергія / Каналізація / Кондиціонер',
     id: 0,
   },
   {
-    type: "Складські приміщення",
-    link: "https://images.unsplash.com/photo-1684779847639-fbcc5a57dfe9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+    type: 'Складські приміщення',
+    link: 'https://images.unsplash.com/photo-1684779847639-fbcc5a57dfe9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
     m2: 100,
-    location: "vokz",
+    location: 'vokz',
     price: 3000,
-    exactAddres: "2-ий Партизанський провулок 31, Біла Церква, 09100",
+    exactAddres: '2-ий Партизанський провулок 31, Біла Церква, 09100',
     keyFeatures:
-      "2 поверх / Будівля спортовно-оздоровчого комплексу / Цілодобова охорона / Приміщення правильної форми / Прекрасний колектив / Електроенергія / Каналізація / Кондиціонер",
+      '2 поверх / Будівля спортовно-оздоровчого комплексу / Цілодобова охорона / Приміщення правильної форми / Прекрасний колектив / Електроенергія / Каналізація / Кондиціонер',
     id: 1,
   },
   {
-    type: "Бокси",
-    link: "https://images.unsplash.com/photo-1685443866545-57adcff6e0be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80",
+    type: 'Бокси',
+    link: 'https://images.unsplash.com/photo-1685443866545-57adcff6e0be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80',
     m2: 200,
-    location: "levan",
+    location: 'levan',
     price: 7000,
-    exactAddres: "Вулиця Леваневського 85, Біла Церква, 09100",
+    exactAddres: 'Вулиця Леваневського 85, Біла Церква, 09100',
     keyFeatures:
-      "Закрита територія / Рампа / Приміщення різних розмірів / Цілодобова охорона / Зона паркування / Асфальтована територія / Електроенергія / Каналізація",
+      'Закрита територія / Рампа / Приміщення різних розмірів / Цілодобова охорона / Зона паркування / Асфальтована територія / Електроенергія / Каналізація',
     id: 2,
   },
 ];
@@ -69,14 +69,14 @@ export default function Find() {
   );
 
   const [greenBorder, setGreenBorder] = useState(false);
-  const [selectedButtonFilter, setSelectedButtonFilter] = useState("all");
+  const [selectedButtonFilter, setSelectedButtonFilter] = useState('all');
 
-  const [filterInputValue, setFilterInputValue] = useState(size || "");
+  const [filterInputValue, setFilterInputValue] = useState(size || '');
   const [showXIcon, setShowXIcon] = useState(false);
 
-  const [visibleFilterOption, setVisibleFilterOption] = useState("m2");
+  const [visibleFilterOption, setVisibleFilterOption] = useState('m2');
   const [alternativeFilterOption, setAlternativeFilterOption] =
-    useState("ціна");
+    useState('ціна');
   const [openedFilterModal, setFilterModal] = useState(false);
 
   // let objectsfilteredByCategory = rentObjectsFromDB;
@@ -145,7 +145,7 @@ export default function Find() {
   };
 
   const xCloseHandler = () => {
-    setFilterInputValue("");
+    setFilterInputValue('');
     setShowXIcon(false);
   };
 
@@ -160,13 +160,13 @@ export default function Find() {
   };
 
   const dynamicPlaceHolder =
-    visibleFilterOption === "m2"
-      ? "введіть бажану квадратуру"
-      : "введіть бажану ціну";
+    visibleFilterOption === 'm2'
+      ? 'введіть бажану квадратуру'
+      : 'введіть бажану ціну';
 
   const filterAreaButtonsHandler = (e) => {
     setSelectedButtonFilter(e.target.id);
-    if (e.target.id === "all") {
+    if (e.target.id === 'all') {
       setArrayFilteredWithButton(rentObjectsFromDB);
       return;
     }
@@ -178,12 +178,12 @@ export default function Find() {
 
   useEffect(() => {
     if (filterInputValue > 0 && filterInputValue.trim().length > 0) {
-      if (visibleFilterOption === "m2") {
+      if (visibleFilterOption === 'm2') {
         const filteredArray = arrayFilteredWithButton.filter(
           (obj) => obj.m2 >= filterInputValue
         );
         setObjectsForPage(filteredArray);
-      } else if (visibleFilterOption === "ціна") {
+      } else if (visibleFilterOption === 'ціна') {
         const filteredArray = arrayFilteredWithButton.filter(
           (obj) => obj.price >= filterInputValue
         );
@@ -196,26 +196,26 @@ export default function Find() {
   }, [filterInputValue, arrayFilteredWithButton, visibleFilterOption]);
 
   const selectedAreaButton =
-    selectedButtonFilter === "all"
+    selectedButtonFilter === 'all'
       ? 1
-      : selectedButtonFilter === "pion"
-      ? 2
-      : selectedButtonFilter === "vokz"
-      ? 3
-      : selectedButtonFilter === "levan"
-      ? 4
-      : "";
+      : selectedButtonFilter === 'pion'
+        ? 2
+        : selectedButtonFilter === 'vokz'
+          ? 3
+          : selectedButtonFilter === 'levan'
+            ? 4
+            : '';
 
   const textForCardHeading =
-    whatIsRented === "Офіси"
-      ? "Офіс"
-      : whatIsRented === "Складські приміщення"
-      ? "Склад"
-      : whatIsRented === "Холодильні приміщення"
-      ? "Овочесховищe"
-      : whatIsRented === "Бокси"
-      ? "Бокс"
-      : "";
+    whatIsRented === 'Офіси'
+      ? 'Офіс'
+      : whatIsRented === 'Складські приміщення'
+        ? 'Склад'
+        : whatIsRented === 'Холодильні приміщення'
+          ? 'Овочесховищe'
+          : whatIsRented === 'Бокси'
+            ? 'Бокс'
+            : '';
   const noObjectsFound = objectsForPage.length === 0;
 
   return (
@@ -223,7 +223,7 @@ export default function Find() {
       <section className={style.textAndFindContainer}>
         <div
           className={`${style.imitateBigInput} ${
-            greenBorder ? style.greenBorder : ""
+            greenBorder ? style.greenBorder : ''
           }`}
         >
           <button
@@ -270,7 +270,7 @@ export default function Find() {
               <button
                 type="button"
                 className={`${
-                  selectedAreaButton === 1 ? style.buttonGreen : ""
+                  selectedAreaButton === 1 ? style.buttonGreen : ''
                 }`}
                 id="all"
                 onClick={filterAreaButtonsHandler}
@@ -282,7 +282,7 @@ export default function Find() {
                 id="pion"
                 onClick={filterAreaButtonsHandler}
                 className={`${
-                  selectedAreaButton === 2 ? style.buttonGreen : ""
+                  selectedAreaButton === 2 ? style.buttonGreen : ''
                 }`}
               >
                 Піонерська
@@ -292,7 +292,7 @@ export default function Find() {
                 id="vokz"
                 onClick={filterAreaButtonsHandler}
                 className={`${
-                  selectedAreaButton === 3 ? style.buttonGreen : ""
+                  selectedAreaButton === 3 ? style.buttonGreen : ''
                 }`}
               >
                 Вокзальна
@@ -300,7 +300,7 @@ export default function Find() {
               <button
                 type="button"
                 className={`${style.lastButton} ${
-                  selectedAreaButton === 4 ? style.buttonGreen : ""
+                  selectedAreaButton === 4 ? style.buttonGreen : ''
                 }`}
                 id="levan"
                 onClick={filterAreaButtonsHandler}
@@ -343,7 +343,7 @@ export default function Find() {
               description={object.description}
               heading={textForCardHeading}
               id={object.id}
-              prior={objectId === 0 ? true : false}
+              prior={objectId === 0}
             />
           ))}
       </div>
