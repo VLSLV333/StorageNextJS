@@ -1,31 +1,30 @@
-import style from "./CreateNewObject.module.scss";
+import style from './CreateNewObject.module.scss';
 
 export default function CreateNewObject() {
   const formHandler = (e) => {
     e.preventDefault();
 
     const objectToCreate = {
-        type: e.target.type.value,
-        link: e.target.link.value,
-        m2: e.target.size.value,
-        location: e.target.location.value,
-        price: e.target.price.value,
-        exactAddres: e.target.exactAddres.value,
-        keyFeatures: e.target.keyFeatures.value,
-        photos: e.target.photos.value.split(','),
-        description: e.target.description.value,
-        pass: e.target.pass.value,
-    }
+      type: e.target.type.value,
+      link: e.target.link.value,
+      m2: e.target.size.value,
+      location: e.target.location.value,
+      price: e.target.price.value,
+      exactAddres: e.target.exactAddres.value,
+      keyFeatures: e.target.keyFeatures.value,
+      photos: e.target.photos.value.split(','),
+      description: e.target.description.value,
+      pass: e.target.pass.value,
+    };
 
     console.log(objectToCreate);
-
   };
 
   return (
     <form onSubmit={formHandler} className={style.form}>
       <label htmlFor="type">
-        Введіть тип об'єкту: Офіси / Складські приміщення / Бокси / Холодильні
-        приміщення
+        Введіть тип об&apos;єкту: Офіси / Складські приміщення / Бокси /
+        Холодильні приміщення
       </label>
       <input type="text" id="type" name="type"></input>
       <label htmlFor="link">Вставте посилання на головне фото об'єкту</label>
@@ -59,7 +58,9 @@ export default function CreateNewObject() {
       <input type="text" id="photos" name="photos"></input>
       <label htmlFor="pass">Введіть пароль</label>
       <input type="text" id="pass" name="pass"></input>
-      <button type="submit"  className={style.button}>Submit</button>
+      <button type="submit" className={style.button}>
+        Submit
+      </button>
     </form>
   );
 }
