@@ -1,6 +1,6 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import ObjectDetailsPage from '@/components/objectDetailsPage/ObjectDetailsPage';
+import ObjectDetailsPage from "@/components/objectDetailsPage/ObjectDetailsPage";
 
 export default function Find() {
   return (
@@ -18,3 +18,27 @@ export default function Find() {
     </>
   );
 }
+
+// export async function getStaticPaths() {
+//   return {
+//     paths: [
+//       {
+//         params: {
+//           id: "object real id generated dynamically",
+//         },
+//       },
+//     ],
+//     fallback: false,
+//   };
+// }
+
+// export async function getStaticProps(context) {
+//   const objectId = context.params.id;
+
+//   return {
+//     props: {
+//       arraFromDataBase: [],
+//     },
+//     revalidate: 14400, // seconds to check changes on page
+//   };
+// }

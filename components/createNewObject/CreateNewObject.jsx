@@ -1,23 +1,37 @@
-import style from './CreateNewObject.module.scss';
+import style from "./CreateNewObject.module.scss";
 
 export default function CreateNewObject() {
-  const formHandler = (e) => {
+  const formHandler = async (e) => {
     e.preventDefault();
 
-    const objectToCreate = {
-      type: e.target.type.value,
-      link: e.target.link.value,
-      m2: e.target.size.value,
-      location: e.target.location.value,
-      price: e.target.price.value,
-      exactAddres: e.target.exactAddres.value,
-      keyFeatures: e.target.keyFeatures.value,
-      photos: e.target.photos.value.split(','),
-      description: e.target.description.value,
-      pass: e.target.pass.value,
-    };
+    try {
+      const objectToCreate = {
+        type: e.target.type.value,
+        link: e.target.link.value,
+        m2: e.target.size.value,
+        location: e.target.location.value,
+        price: e.target.price.value,
+        exactAddres: e.target.exactAddres.value,
+        keyFeatures: e.target.keyFeatures.value,
+        photos: e.target.photos.value.split(","),
+        description: e.target.description.value,
+        pass: e.target.pass.value,
+      };
 
-    console.log(objectToCreate);
+      const responce = await fetch("/api/newObject", {
+        method: "POST",
+        body: JSON.stringify(objectToCreate),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await responce.json();
+
+      console.log(data);
+    } catch (e) {
+      throw new Error(`something went wrong: ${e}`);
+    }
   };
 
   return (

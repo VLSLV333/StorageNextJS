@@ -18,3 +18,12 @@ export default function Find() {
     </>
   );
 }
+
+// export async function getStaticProps() {
+//   return {
+//     props: {
+//       arraFromDataBase: [],
+//     },
+//     revalidate: 14400, // seconds to check changes on page
+//   };
+// }
