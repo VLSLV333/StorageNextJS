@@ -1,34 +1,34 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from 'react';
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 import Link from 'next/link';
 
-import { toggleBlur } from "../../../store/pageBlurSlice";
+import { toggleBlur } from '../../../store/pageBlurSlice';
 import {
   showBurgerMenu,
   hideBurgerMenu,
   setSeveralClicksOnBurgerModal,
-} from "../../../store/burgerMenuSlice";
+} from '../../../store/burgerMenuSlice';
 // import { openFindModal, hideFindModal } from '@/store/findModalMobileSlice';
 import {
   openPhoneModal,
   hidePhoneModal,
   setSeveralClicksOnPhoneModal,
-} from "@/store/phoneModalSlice";
+} from '@/store/phoneModalSlice';
 
-import Burger from "./vectors/burger/Burger";
-import Find from "./vectors/find/Find";
-import Phone from "./vectors/phone/Phone";
-import Logo from "./vectors/logo/Logo";
+import Burger from './vectors/burger/Burger';
+import Find from './vectors/find/Find';
+import Phone from './vectors/phone/Phone';
+import Logo from './vectors/logo/Logo';
 
-import BurgerWhite from "./vectors/burger/BurgerWhite";
-import PhoneWhite from "./vectors/phone/PhoneWhite";
-import FindWhite from "./vectors/find/FindWhite";
+import BurgerWhite from './vectors/burger/BurgerWhite';
+import PhoneWhite from './vectors/phone/PhoneWhite';
+import FindWhite from './vectors/find/FindWhite';
 
-import style from "./Header.module.scss";
+import style from './Header.module.scss';
 
 function Header() {
   const router = useRouter();
@@ -80,17 +80,17 @@ function Header() {
       dispatch(showBurgerMenu());
     } else if (severalClicksInBurgerModal) {
       dispatch(hideBurgerMenu());
-      dispatch(toggleBlur("hide"));
-      dispatch(setSeveralClicksOnBurgerModal("no"));
+      dispatch(toggleBlur('hide'));
+      dispatch(setSeveralClicksOnBurgerModal('no'));
     } else {
       dispatch(hideBurgerMenu());
     }
   };
   const burgerBlurHandler = () => {
     if (!clickedInBurgerModal) {
-      dispatch(toggleBlur("hide"));
+      dispatch(toggleBlur('hide'));
       dispatch(hideBurgerMenu());
-      dispatch(setSeveralClicksOnBurgerModal("no"));
+      dispatch(setSeveralClicksOnBurgerModal('no'));
     }
   };
 
@@ -100,25 +100,25 @@ function Header() {
       dispatch(openPhoneModal());
     } else if (severalClicksInPhoneModal) {
       dispatch(hidePhoneModal());
-      dispatch(toggleBlur("hide"));
-      dispatch(setSeveralClicksOnPhoneModal("no"));
+      dispatch(toggleBlur('hide'));
+      dispatch(setSeveralClicksOnPhoneModal('no'));
     } else {
       dispatch(hidePhoneModal());
     }
   };
   const phoneBlurHandler = () => {
     if (!clickedInPhoneModal) {
-      dispatch(toggleBlur("hide"));
+      dispatch(toggleBlur('hide'));
       dispatch(hidePhoneModal());
-      dispatch(setSeveralClicksOnPhoneModal("no"));
+      dispatch(setSeveralClicksOnPhoneModal('no'));
     }
   };
 
   const findMobileHandler = () => {
     // dispatch(toggleBlur(2));
     router.push({
-      pathname: "./find",
-      query: { keyword: "came from search icon" },
+      pathname: '/find',
+      // query: { keyword: 'came from search icon' },
     });
   };
 
@@ -140,8 +140,8 @@ function Header() {
                   type="button"
                   onClick={burgerHandler}
                   onBlur={burgerBlurHandler}
-                  className={`${burgerMenuOpened ? style.hoverClass : ""} ${
-                    burgerMenuOpened ? style.burgerTriangle : ""
+                  className={`${burgerMenuOpened ? style.hoverClass : ''} ${
+                    burgerMenuOpened ? style.burgerTriangle : ''
                   }`}
                   ref={burgerButtonRef}
                 >
@@ -171,13 +171,15 @@ function Header() {
               type="button"
               onClick={phoneMobileHandler}
               onBlur={phoneBlurHandler}
-              className={`${phoneModalOpened ? style.hoverClass : ""} ${
-                phoneModalOpened ? style.phoneTriangle : ""
+              className={`${phoneModalOpened ? style.hoverClass : ''} ${
+                phoneModalOpened ? style.phoneTriangle : ''
               }`}
               ref={phoneButtonRef}
             >
               {!phoneModalOpened && <Phone className={style.phoneSvgMobile} />}
-              {phoneModalOpened && <PhoneWhite className={style.phoneSvgMobile} />}
+              {phoneModalOpened && (
+                <PhoneWhite className={style.phoneSvgMobile} />
+              )}
             </button>
           </li>
         </ul>
@@ -196,7 +198,7 @@ function Header() {
                 <button
                   type="button"
                   className={`${style.objectsButton} ${
-                    burgerMenuOpened ? style.objectsButtonClicked : ""
+                    burgerMenuOpened ? style.objectsButtonClicked : ''
                   }`}
                   onClick={burgerHandler}
                   onBlur={burgerBlurHandler}
@@ -213,20 +215,24 @@ function Header() {
                 <button
                   type="button"
                   className={`${style.desktopIconButon} ${
-                    phoneModalOpened ? style.hoverClass : ""
+                    phoneModalOpened ? style.hoverClass : ''
                   }`}
                   onClick={phoneMobileHandler}
                   onBlur={phoneBlurHandler}
                   ref={phoneButtonDesktopRef}
                 >
                   {!phoneModalOpened && <Phone className={style.phoneSvg} />}
-                  {!phoneModalOpened && <PhoneWhite className={style.phoneWhiteSvg} />}
-                  {phoneModalOpened && <PhoneWhite className={style.phoneWhiteOpenedSvg} />}
+                  {!phoneModalOpened && (
+                    <PhoneWhite className={style.phoneWhiteSvg} />
+                  )}
+                  {phoneModalOpened && (
+                    <PhoneWhite className={style.phoneWhiteOpenedSvg} />
+                  )}
                 </button>
               </li>
               <hr className={style.hrBetweenIcons} />
               <li>
-                <Link href="./find">
+                <Link href="/find">
                   <button type="button" className={style.desktopIconButon}>
                     <Find className={style.findSvg} />
                     <FindWhite className={style.findWhiteSvg} />

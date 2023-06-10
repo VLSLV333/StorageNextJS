@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
-import { setSelectedObject } from "@/store/mainSelectObjectSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { setSelectedObject } from '@/store/mainSelectObjectSlice';
 
-import ArrowDown from "../vectors/arrowDown/ArrowDown";
-import ArrowUp from "../vectors/arrowUp/ArrowUp";
-import Find from "../../header/vectors/find/Find";
+import ArrowDown from '../vectors/arrowDown/ArrowDown';
+import ArrowUp from '../vectors/arrowUp/ArrowUp';
+import Find from '../../header/vectors/find/Find';
 
-import Office from "../vectors/office/Office";
-import Box from "../vectors/box/Box";
-import Fridge from "../vectors/fridge/Fridge";
-import Warehouse from "../vectors/warehouse/Warehouse";
+import Office from '../vectors/office/Office';
+import Box from '../vectors/box/Box';
+import Fridge from '../vectors/fridge/Fridge';
+import Warehouse from '../vectors/warehouse/Warehouse';
 
-import style from "./DropDownSection.module.scss";
+import style from './DropDownSection.module.scss';
 
 export default function DropDownSection({ w, m }) {
   const router = useRouter();
@@ -34,7 +34,7 @@ export default function DropDownSection({ w, m }) {
   // const [selectedText, setSelectedText] = useState(TextInStorage);
 
   const [opened, setOpened] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
   const [showFind, setShowFind] = useState(false);
 
@@ -62,22 +62,22 @@ export default function DropDownSection({ w, m }) {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     router.push({
-      pathname: "./find",
+      pathname: '/find',
       query: { ...queryInStorage, size: inputValue },
     });
   };
 
   const mainVisibleSvg =
-    svgInStorage === "office" ? (
+    svgInStorage === 'office' ? (
       <Office color="black" className={style.officeSvgDesktop} />
-    ) : svgInStorage === "wareHouse" ? (
+    ) : svgInStorage === 'wareHouse' ? (
       <Warehouse color="black" className={style.wareHouseSvgMobile} />
-    ) : svgInStorage === "fridge" ? (
+    ) : svgInStorage === 'fridge' ? (
       <Fridge color="black" className={style.fridgeSvgMobile} />
-    ) : svgInStorage === "Box" ? (
+    ) : svgInStorage === 'Box' ? (
       <Box color="black" className={style.boxSvgMobile} />
     ) : (
-      ""
+      ''
     );
 
   const officeMobileButtonHandler = () => {
@@ -112,10 +112,10 @@ export default function DropDownSection({ w, m }) {
     dispatch(setSelectedObject(3));
   };
 
-  const officeSelected = svgInStorage === "office";
-  const wareHouseSelected = svgInStorage === "wareHouse";
-  const fridgeSelected = svgInStorage === "fridge";
-  const boxSelected = svgInStorage === "Box";
+  const officeSelected = svgInStorage === 'office';
+  const wareHouseSelected = svgInStorage === 'wareHouse';
+  const fridgeSelected = svgInStorage === 'fridge';
+  const boxSelected = svgInStorage === 'Box';
 
   return (
     <section className={style.cardMain} style={{ width: w, margin: m }}>
@@ -134,9 +134,9 @@ export default function DropDownSection({ w, m }) {
           </button>
           <button
             className={`${style.vectorText} ${style.vectorTextDesktop} ${
-              officeSelected ? style.greenBottom : ""
+              officeSelected ? style.greenBottom : ''
             }`}
-            href="./find"
+            href="/find"
             onClick={officeDesktopButtonHandler}
             type="button"
           >
@@ -145,9 +145,9 @@ export default function DropDownSection({ w, m }) {
           </button>
           <button
             className={`${style.vectorText} ${style.vectorTextDesktop} ${
-              wareHouseSelected ? style.greenBottom : ""
+              wareHouseSelected ? style.greenBottom : ''
             }`}
-            href="./find"
+            href="/find"
             onClick={warehouseDesktopButtonHandler}
             type="button"
           >
@@ -156,9 +156,9 @@ export default function DropDownSection({ w, m }) {
           </button>
           <button
             className={`${style.vectorText} ${style.vectorTextDesktop} ${
-              fridgeSelected ? style.greenBottom : ""
+              fridgeSelected ? style.greenBottom : ''
             }`}
-            href="./find"
+            href="/find"
             onClick={fridgeDesktopButtonHandler}
             type="button"
           >
@@ -167,9 +167,9 @@ export default function DropDownSection({ w, m }) {
           </button>
           <button
             className={`${style.vectorText} ${style.vectorTextDesktop} ${
-              boxSelected ? style.greenBottom : ""
+              boxSelected ? style.greenBottom : ''
             }`}
-            href="./find"
+            href="/find"
             onClick={BoxDesktopButtonHandler}
             type="button"
           >
@@ -184,7 +184,7 @@ export default function DropDownSection({ w, m }) {
         <div
           className={style.hidden}
           style={{
-            display: !opened ? "none" : "",
+            display: !opened ? 'none' : '',
           }}
         >
           {!officeSelected && (
@@ -239,18 +239,18 @@ export default function DropDownSection({ w, m }) {
             type="number"
             onBlur={inputBlurHandler}
             style={{
-              borderColor: inputFocused ? "#7ed957" : "rgb(217, 219, 221)",
+              borderColor: inputFocused ? '#7ed957' : 'rgb(217, 219, 221)',
             }}
             onClick={inputClickHandler}
             max={900}
           />
-          <span style={{ color: inputFocused ? "#7ed957" : "inherit" }}>
+          <span style={{ color: inputFocused ? '#7ed957' : 'inherit' }}>
             Введіть м2
           </span>
         </label>
         {showFind && (
           <button type="submit" className={style.hiddenLoopButton}>
-            <Find />
+            <Find color="#7ed957" />
           </button>
         )}
         <button type="submit" className={style.desktopButton}>

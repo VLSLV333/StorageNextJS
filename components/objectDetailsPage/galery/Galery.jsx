@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image from 'next/image';
 
-import style from "./Galery.module.scss";
+import style from './Galery.module.scss';
 
-const Galery = ({ photosArray }) => {
+export default function Galery({ photosArray }) {
   return (
     <div className={style.productCarousel}>
       <div className={style.productContainerMobile}>
@@ -10,7 +10,7 @@ const Galery = ({ photosArray }) => {
           <Image
             src={photo}
             alt="work"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: 'contain' }}
             height={375}
             width={290}
             priority={photoIndex === 0}
@@ -19,11 +19,11 @@ const Galery = ({ photosArray }) => {
         ))}
       </div>
       <div className={style.productContainerTablet}>
-        {photosArray?.map((photo, photoIndex) => (
+        {photosArray?.map((photo) => (
           <Image
             src={photo}
             alt="work"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: 'cover' }}
             height={435}
             width={395}
             // priority={photoIndex === 0 || photoIndex === 1}
@@ -33,6 +33,4 @@ const Galery = ({ photosArray }) => {
       </div>
     </div>
   );
-};
-
-export default Galery;
+}

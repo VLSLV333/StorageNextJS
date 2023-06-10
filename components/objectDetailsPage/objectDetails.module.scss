@@ -68,8 +68,11 @@
     font-weight: 500;
     margin-bottom: 1.5rem;
   }
+  & h2:first-child {
+    margin-bottom: 0rem;
+  }
   & .firstLine {
-    margin-bottom: 0.7rem;
+    margin-bottom: 1.2rem;
   }
   & .secondLine {
     margin-bottom: 1.2rem;
@@ -84,7 +87,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 0.7rem;
+    margin-bottom: 1.2rem;
     & p {
       font-size: 1.15rem;
       font-weight: 500;
@@ -93,7 +96,7 @@
   & .smallHead {
     display: block;
     color: #6c6d7f;
-    margin-bottom: 0.3rem;
+    margin-bottom: 1rem;
     font-size: 1rem;
   }
   & .bigHead {

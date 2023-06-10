@@ -1,23 +1,23 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 
-import { toggleBlur } from "@/store/pageBlurSlice";
+import { toggleBlur } from '@/store/pageBlurSlice';
 import {
   hideBurgerMenu,
   setSeveralClicksOnBurgerModal,
-} from "@/store/burgerMenuSlice";
+} from '@/store/burgerMenuSlice';
 
-import useOutsideClick from "@/hooks/useOutsideClick";
+import useOutsideClick from '@/hooks/useOutsideClick';
 
-import Office from "../mainPage/main/vectors/office/Office";
-import Warehouse from "../mainPage/main/vectors/warehouse/Warehouse";
-import Fridge from "../mainPage/main/vectors/fridge/Fridge";
-import Box from "../mainPage/main/vectors/box/Box";
+import Office from '../mainPage/main/vectors/office/Office';
+import Warehouse from '../mainPage/main/vectors/warehouse/Warehouse';
+import Fridge from '../mainPage/main/vectors/fridge/Fridge';
+import Box from '../mainPage/main/vectors/box/Box';
 
-import style from "./ModalMainMenu.module.scss";
+import style from './ModalMainMenu.module.scss';
 
 export default function ModalMeinMenu() {
   const mainMenuRef = useRef(null);
@@ -31,8 +31,8 @@ export default function ModalMeinMenu() {
   // };
   const linkClickHandler = () => {
     dispatch(hideBurgerMenu());
-    dispatch(toggleBlur("hide"));
-    dispatch(setSeveralClicksOnBurgerModal("no"));
+    dispatch(toggleBlur('hide'));
+    dispatch(setSeveralClicksOnBurgerModal('no'));
   };
 
   return (
@@ -44,7 +44,7 @@ export default function ModalMeinMenu() {
     >
       <div className={style.textContainer}>
         <h2>Оберіть об&apos;єкт</h2>
-        <Link href="./find" onClick={linkClickHandler}>
+        <Link href="/find" onClick={linkClickHandler}>
           <p>Переглянути всі об&apos;єкти</p>
         </Link>
       </div>
@@ -54,8 +54,8 @@ export default function ModalMeinMenu() {
           className={style.pairContainer}
           onClick={linkClickHandler}
           href={{
-            pathname: "./find",
-            query: { whatIsRented: "Офіси" },
+            pathname: '/find',
+            query: { whatIsRented: 'Офіси' },
           }}
         >
           <Office color="black" className={style.officeSvg} />
@@ -65,8 +65,8 @@ export default function ModalMeinMenu() {
           className={style.pairContainer}
           onClick={linkClickHandler}
           href={{
-            pathname: "./find",
-            query: { whatIsRented: "Складські приміщення" },
+            pathname: '/find',
+            query: { whatIsRented: 'Складські приміщення' },
           }}
         >
           <Warehouse color="black" className={style.warehouseSvg} />
@@ -76,8 +76,8 @@ export default function ModalMeinMenu() {
           className={style.pairContainer}
           onClick={linkClickHandler}
           href={{
-            pathname: "./find",
-            query: { whatIsRented: "Холодильні приміщення" },
+            pathname: '/find',
+            query: { whatIsRented: 'Холодильні приміщення' },
           }}
         >
           <Fridge color="black" className={style.fridgeSvg} />
@@ -87,8 +87,8 @@ export default function ModalMeinMenu() {
           className={style.pairContainer}
           onClick={linkClickHandler}
           href={{
-            pathname: "./find",
-            query: { whatIsRented: "Бокси" },
+            pathname: '/find',
+            query: { whatIsRented: 'Бокси' },
           }}
         >
           <Box color="black" className={style.boxSvg} />

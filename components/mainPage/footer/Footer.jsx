@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import Logo from '../header/vectors/logo/Logo';
 
 import style from './Fotter.module.scss';
@@ -15,9 +17,9 @@ export default function Footer() {
         </section>
         <section className={style.allObjectsSection}>
           <h2>Усі об&apos;єкти</h2>
-          <a href="./find">
+          <Link href="/find">
             <p>Переглянути список</p>
-          </a>
+          </Link>
         </section>
       </div>
     </footer>

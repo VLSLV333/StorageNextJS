@@ -15,7 +15,7 @@ export default function ObjectCard({
   price,
   exactAddres,
   description,
-  heading,
+  type,
   id,
   prior,
 }) {
@@ -32,10 +32,20 @@ export default function ObjectCard({
 
   const buttonHandler = () => {
     router.push({
-      pathname: `./find/${id}`,
-      // query: { ...queryInStorage, size: inputValue },
+      pathname: `/find/${id}`,
     });
   };
+
+  const textForCardHeading =
+    type === 'Офіси'
+      ? 'Офіс'
+      : type === 'Складські приміщення'
+        ? 'Склад'
+        : type === 'Холодильні приміщення'
+          ? 'Овочесховищe'
+          : type === 'Бокси'
+            ? 'Бокс'
+            : '';
 
   return (
     <div className={style.wholeCard}>
@@ -46,10 +56,7 @@ export default function ObjectCard({
           style={{ objectFit: 'cover' }}
           fill
           sizes="(max-width: 502px) 93.7vw, (max-width: 1023px) 470px, (max-width: 1279px) 70vw,  430px"
-          // sizes=""
           priority={prior}
-          // placeholder="blur"
-          // blurDataURL={link}
         />
       </div>
       <div className={style.everythingWithoutImage}>
@@ -78,7 +85,7 @@ export default function ObjectCard({
         <div className={style.cardRightSide}>
           <div className={style.priceContainer}>
             <h3>
-              {heading} – {m2} м2
+              {textForCardHeading} – {m2} м2
             </h3>
             <div className={style.priceSplited}>
               <p className={style.price}>{price} грн</p>

@@ -1,8 +1,18 @@
-import Head from "next/head";
+import { MongoClient, ObjectId } from 'mongodb';
 
-import ObjectDetailsPage from "@/components/objectDetailsPage/ObjectDetailsPage";
+import Head from 'next/head';
 
-export default function Find() {
+import ObjectDetailsPage from '@/components/objectDetailsPage/ObjectDetailsPage';
+
+export default function Find({
+  type,
+  m2,
+  price,
+  exactAddres,
+  keyFeatures,
+  photos,
+  description,
+}) {
   return (
     <>
       <Head>
@@ -14,31 +24,64 @@ export default function Find() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ObjectDetailsPage />
+      <ObjectDetailsPage
+        type={type}
+        m2={m2}
+        price={price}
+        exactAddres={exactAddres}
+        keyFeatures={keyFeatures}
+        photos={photos}
+        description={description}
+      />
     </>
   );
 }
 
-// export async function getStaticPaths() {
-//   return {
-//     paths: [
-//       {
-//         params: {
-//           id: "object real id generated dynamically",
-//         },
-//       },
-//     ],
-//     fallback: false,
-//   };
-// }
+export async function getStaticPaths() {
+  const client = await MongoClient.connect(
+    'mongodb+srv://Vlad_Father_Storage:NsF4yqDYj1WK8afo@cluster-father-storage.dfze9yi.mongodb.net/fatherStorageObjects?retryWrites=true&w=majority'
+  );
+  const db = client.db();
 
-// export async function getStaticProps(context) {
-//   const objectId = context.params.id;
+  const objectCollection = db.collection('fatherStorageObjects');
 
-//   return {
-//     props: {
-//       arraFromDataBase: [],
-//     },
-//     revalidate: 14400, // seconds to check changes on page
-//   };
-// }
+  // {} - find all objects there is no filter criteria
+  // { _id: 1 } - find in all objects only id fild
+  const objectsArray = await objectCollection.find({}, { _id: 1 }).toArray();
+
+  client.close();
+
+  return {
+    // eslint-disable-next-line no-underscore-dangle
+    paths: objectsArray.map((obj) => ({ params: { id: obj._id.toString() } })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context) {
+  const objectId = context.params.id;
+
+  const client = await MongoClient.connect(
+    'mongodb+srv://Vlad_Father_Storage:NsF4yqDYj1WK8afo@cluster-father-storage.dfze9yi.mongodb.net/fatherStorageObjects?retryWrites=true&w=majority'
+  );
+  const db = client.db();
+
+  const objectCollection = db.collection('fatherStorageObjects');
+
+  const neededObject = await objectCollection.findOne({
+    _id: new ObjectId(objectId),
+  });
+
+  return {
+    props: {
+      type: neededObject.type,
+      m2: neededObject.m2,
+      price: neededObject.price,
+      exactAddres: neededObject.exactAddres,
+      keyFeatures: neededObject.keyFeatures,
+      photos: neededObject.photos,
+      description: neededObject.description,
+    },
+    revalidate: 14400, // seconds to check changes on page
+  };
+}
