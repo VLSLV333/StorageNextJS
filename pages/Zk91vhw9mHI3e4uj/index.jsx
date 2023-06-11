@@ -1,6 +1,6 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-import CreateNewObject from "@/components/createNewObject/CreateNewObject";
+import CreateNewObject from '@/components/createNewObject/CreateNewObject';
 
 export default function CreateObj() {
   return (

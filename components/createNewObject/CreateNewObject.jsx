@@ -26,9 +26,7 @@ export default function CreateNewObject() {
         },
       });
 
-      const data = await responce.json();
-
-      console.log(data);
+      await responce.json();
     } catch (error) {
       throw new Error(`something went wrong: ${error}`);
     }

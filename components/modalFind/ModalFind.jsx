@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+// import { useRef } from 'react';
 
 // import useOutsideAlerter from '../../hooks/useOutsideClick';
 
@@ -10,7 +10,7 @@ export default function ModalFind() {
   // const wrapperRef = useRef(null);
   // useOutsideAlerter(wrapperRef);
   return (
-    <section className={style.modal} ref={wrapperRef}>
+    <section className={style.modal}>
       <DropDownSection w="100%" m="0" />
     </section>
   );

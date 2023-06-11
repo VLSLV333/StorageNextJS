@@ -8,7 +8,6 @@ export default async function handler(req, res) {
   const { pass } = newObject;
 
   if (pass !== '7H4*S$L5yy@^BZ') {
-    console.log('wrong pass');
     return;
   }
 

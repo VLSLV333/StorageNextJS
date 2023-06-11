@@ -1,6 +1,6 @@
-import Head from "next/head";
+import Head from 'next/head';
 
-import LoopPage from "@/components/loopPage/LoopPage";
+import LoopPage from '@/components/loopPage/LoopPage';
 
 export default function LoopFindPage() {
   return (

@@ -1,4 +1,4 @@
-function Burger({className}) {
+function Burger({ className }) {
   return (
     <svg
       width="16"
