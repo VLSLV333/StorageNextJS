@@ -10,7 +10,7 @@ export default function Galery({ photosArray }) {
           <Image
             src={photo}
             alt="work"
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'cover' }}
             height={375}
             width={290}
             priority={photoIndex === 0}

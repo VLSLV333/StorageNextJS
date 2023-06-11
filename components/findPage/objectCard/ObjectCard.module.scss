@@ -82,7 +82,7 @@
     }
     & .everythingWithoutImage {
       & .priceContainer {
-        max-width: 222px;
+        max-width: 160px;
         & h3 {
           font-size: 1rem;
         }
@@ -116,6 +116,7 @@
     & .everythingWithoutImage {
       display: flex;
       padding: 2rem;
+      // padding: 2rem 1rem 2rem 2rem;
       justify-content: space-between;
       position: relative;
       & .priceContainer {
@@ -172,6 +173,7 @@
       height: 430px;
       width: 70%;
       min-width: 430px;
+      max-width: 430px;
     }
   }
 }

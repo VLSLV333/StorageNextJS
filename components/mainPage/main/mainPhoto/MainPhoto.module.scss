@@ -44,8 +44,18 @@
 }
 
 .wa {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url('../../../../images/mainPhoto/wareHouseMobile.webp');
+}
+
+.fr {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url('../../../../images/mainPhoto/fridgeMobile.webp');
+}
+
+.bo {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-      url('../../../../images/mainPhoto/test.jpg');
+      url('../../../../images/mainPhoto/boxMobile.webp');
 }
 
 @media only screen and (min-width:768px) {
@@ -53,16 +63,52 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
       url('../../../../images/mainPhoto/mainTabletOffice.webp');
 }
+.wa {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/wareHouseTablet.webp');
+}
+.fr {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url('../../../../images/mainPhoto/fridgeTablet.webp');
+}
+.bo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/boxTablet.webp');
+}
 }
 @media only screen and (min-width:1024px) {
 .of {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
       url('../../../../images/mainPhoto/mainDesktopOffice.webp');
 }
+.wa {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/wareHouseDesktop.webp');
+}
+.fr {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url('../../../../images/mainPhoto/fridgeDesktop.webp');
+}
+.bo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/boxDesktop.webp');
+}
 }
 @media only screen and (min-width:1440px) {
 .of {
   background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
       url('../../../../images/mainPhoto/mainLargeScreenOffice.webp');
+}
+.wa {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/wareHouseLargeScreen.webp');
+}
+.fr {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url('../../../../images/mainPhoto/fridgeLargeScreen.webp');
+}
+.bo {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+      url('../../../../images/mainPhoto/boxLargeScreen.webp');
 }
 }

@@ -1,14 +1,14 @@
-import MainPhoto from "./mainPhoto/MainPhoto";
-import DropDownSection from "./dropDownSection/DropDownSection";
+import MainPhoto from './mainPhoto/MainPhoto';
+import DropDownSection from './dropDownSection/DropDownSection';
 
-import Office from "./vectors/office/Office";
-import Warehouse from "./vectors/warehouse/Warehouse";
-import FridgeTest from "./vectors/fridge/Fridge";
-import Box from "./vectors/box/Box";
+import Office from './vectors/office/Office';
+import Warehouse from './vectors/warehouse/Warehouse';
+import FridgeTest from './vectors/fridge/Fridge';
+import Box from './vectors/box/Box';
 
-import MainCard from "../../../UI/mainCard/MainCard";
+import MainCard from '../../../UI/mainCard/MainCard';
 
-import style from "./Main.module.scss";
+import style from './Main.module.scss';
 
 export default function Main() {
   return (
@@ -18,7 +18,7 @@ export default function Main() {
       </div>
       <DropDownSection w="90%" />
       <div className={style.mainCardsContainer}>
-        <MainCard className={style.firstItem} pushTo={"Бокси"}>
+        <MainCard className={style.firstItem} pushTo="Бокси">
           <div className={style.svgContainer}>
             <Box color="#7ed957" className={style.boxSvg} />
           </div>
@@ -30,11 +30,11 @@ export default function Main() {
             <p>Орендуйте бокси на закритій території</p>
           </div>
         </MainCard>
-        <MainCard className={style.secondItem} pushTo={"Складські приміщення"}>
+        <MainCard className={style.secondItem} pushTo="Складські приміщення">
           <div className={style.svgContainer}>
             <Warehouse color="#7ed957" className={style.wareHouseSvg} />
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <h2>
               <span>Складські приміщення</span>
             </h2>
@@ -42,7 +42,7 @@ export default function Main() {
             <p>Приміщення під ваші потреби від 80 м2</p>
           </div>
         </MainCard>
-        <MainCard pushTo={"Офіси"}>
+        <MainCard pushTo="Офіси">
           <div className={style.svgContainer}>
             <Office color="#7ed957" className={style.officeSvg} />
           </div>
@@ -54,7 +54,7 @@ export default function Main() {
             <p>Готові офіси в центрі та на околицях міста</p>
           </div>
         </MainCard>
-        <MainCard pushTo={"Холодильні приміщення"}>
+        <MainCard pushTo="Холодильні приміщення">
           <div className={style.svgContainer}>
             <FridgeTest color="#7ed957" className={style.fridgeSvg} />
           </div>
