@@ -31,11 +31,11 @@ function useOutsideClick(ref) {
         dispatch(setClickedInBurgerModal('no'));
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('touchstart', handleClickOutside);
+    // document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('onpointerdown', handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('touchstart', handleClickOutside);
+      // document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('onpointerdown', handleClickOutside);
     };
   }, [ref, dispatch]);
 }
