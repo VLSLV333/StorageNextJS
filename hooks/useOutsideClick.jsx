@@ -1,41 +1,45 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 // import { setClickedInModal } from "../store/findModalMobileSlice";
 import {
   setClickedInPhoneModal,
   setSeveralClicksOnPhoneModal,
-} from '@/store/phoneModalSlice';
+} from "@/store/phoneModalSlice";
 import {
   setClickedInBurgerModal,
   setSeveralClicksOnBurgerModal,
-} from '@/store/burgerMenuSlice';
+} from "@/store/burgerMenuSlice";
+
 
 function useOutsideClick(ref) {
+  const body = document.getElementById("body");
   const dispatch = useDispatch();
   useEffect(() => {
     function handleClickOutside(event) {
       if (ref.current && ref.current.contains(event.target)) {
-        if (ref.current.id === 'burger') {
-          dispatch(setClickedInBurgerModal('yes'));
-          dispatch(setSeveralClicksOnBurgerModal('yes'));
+        if (ref.current.id === "burger") {
+          dispatch(setClickedInBurgerModal("yes"));
+          dispatch(setSeveralClicksOnBurgerModal("yes"));
         }
-        if (ref.current.id === 'phone') {
-          dispatch(setClickedInPhoneModal('yes'));
-          dispatch(setSeveralClicksOnPhoneModal('yes'));
+        if (ref.current.id === "phone") {
+          dispatch(setClickedInPhoneModal("yes"));
+          dispatch(setSeveralClicksOnPhoneModal("yes"));
         }
         // dispatch(setClickedInModal("yes"));
       } else {
         // dispatch(setClickedInModal("no"));
-        dispatch(setClickedInPhoneModal('no'));
-        dispatch(setClickedInBurgerModal('no'));
+        dispatch(setClickedInPhoneModal("no"));
+        dispatch(setClickedInBurgerModal("no"));
       }
     }
-    // document.addEventListener('mousedown', handleClickOutside);
-    document.addEventListener('onpointerdown', handleClickOutside);
+    // document.addEventListener("mousedown", handleClickOutside);
+    body.addEventListener("mousedown", handleClickOutside);
+    // document.addEventListener('onpointerdown', handleClickOutside);
     return () => {
-      // document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('onpointerdown', handleClickOutside);
+      // document.removeEventListener("mousedown", handleClickOutside);
+      body.removeEventListener("mousedown", handleClickOutside);
+      // document.removeEventListener('onpointerdown', handleClickOutside);
     };
   }, [ref, dispatch]);
 }
