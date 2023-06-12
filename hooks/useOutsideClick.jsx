@@ -11,9 +11,9 @@ import {
   setSeveralClicksOnBurgerModal,
 } from "@/store/burgerMenuSlice";
 
-
 function useOutsideClick(ref) {
   const body = document.getElementById("body");
+  const mainText = document.getElementById("mainText");
   const dispatch = useDispatch();
   useEffect(() => {
     function handleClickOutside(event) {
@@ -28,6 +28,8 @@ function useOutsideClick(ref) {
         }
         // dispatch(setClickedInModal("yes"));
       } else {
+        console.log("out");
+        mainText.style.color = "red";
         // dispatch(setClickedInModal("no"));
         dispatch(setClickedInPhoneModal("no"));
         dispatch(setClickedInBurgerModal("no"));

@@ -20,7 +20,7 @@ export default function MainPhoto() {
 
   return (
     <section className={`${style.section} ${classForBg}`}>
-      <h1 className={style.h1}>
+      <h1 className={style.h1} id="mainText">
         Оренда приміщень Біла Церква
         <span className={style.green}>.</span>
       </h1>

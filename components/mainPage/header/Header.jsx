@@ -61,7 +61,9 @@ function Header() {
   );
 
   useEffect(() => {
+    // console.log('burger effect')
     if (clickedInBurgerModal === false) {
+      // console.log('burger effect true')
       burgerButtonRef.current?.focus();
       burgerButtonDesktopRef.current?.focus();
     }
