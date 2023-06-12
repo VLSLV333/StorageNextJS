@@ -34,11 +34,13 @@ function useOutsideClick(ref) {
       }
     }
     // document.addEventListener("mousedown", handleClickOutside);
-    body.addEventListener("mousedown", handleClickOutside);
+    // body.addEventListener("mousedown", handleClickOutside);
+    body.addEventListener("pointerdown", handleClickOutside);
     // document.addEventListener('onpointerdown', handleClickOutside);
     return () => {
       // document.removeEventListener("mousedown", handleClickOutside);
-      body.removeEventListener("mousedown", handleClickOutside);
+      // body.removeEventListener("mousedown", handleClickOutside);
+      body.removeEventListener("pointerdown", handleClickOutside);
       // document.removeEventListener('onpointerdown', handleClickOutside);
     };
   }, [ref, dispatch]);
