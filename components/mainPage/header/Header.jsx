@@ -10,13 +10,11 @@ import { toggleBlur } from '../../../store/pageBlurSlice';
 import {
   showBurgerMenu,
   hideBurgerMenu,
-  // setSeveralClicksOnBurgerModal,
 } from '../../../store/burgerMenuSlice';
 // import { openFindModal, hideFindModal } from '@/store/findModalMobileSlice';
 import {
   openPhoneModal,
   hidePhoneModal,
-  // setSeveralClicksOnPhoneModal,
 } from '@/store/phoneModalSlice';
 
 import Burger from './vectors/burger/Burger';
@@ -46,9 +44,6 @@ function Header() {
   const clickedInBurgerModal = useSelector(
     (state) => state.burgerMenu.clickedInBurgerModal
   );
-  // const severalClicksInBurgerModal = useSelector(
-  //   (state) => state.burgerMenu.severalClicksOnBurgerModal
-  // );
 
   const phoneModalOpened = useSelector(
     (state) => state.phoneModal.showPhoneModal
@@ -56,14 +51,9 @@ function Header() {
   const clickedInPhoneModal = useSelector(
     (state) => state.phoneModal.clickedInPhoneModal
   );
-  // const severalClicksInPhoneModal = useSelector(
-  //   (state) => state.phoneModal.severalClicksOnPhoneModal
-  // );
 
   useEffect(() => {
-    // console.log('burger effect')
     if (clickedInBurgerModal === false) {
-      // console.log('burger effect true')
       burgerButtonDesktopRef.current?.focus();
       burgerButtonRef.current?.focus();
     }
@@ -78,33 +68,18 @@ function Header() {
 
   const burgerHandler = () => {
     dispatch(toggleBlur(1));
-    // if (!burgerMenuOpened && !severalClicksInBurgerModal) {
     burgerButtonDesktopRef.current?.focus();
     burgerButtonRef.current?.focus();
-    // console.log('burger')
     if (!burgerMenuOpened) {
       dispatch(showBurgerMenu());
-    // else if (severalClicksInBurgerModal) {
-    //   dispatch(hideBurgerMenu());
-    //   dispatch(toggleBlur('hide'));
-      // dispatch(setSeveralClicksOnBurgerModal('no'));
-    // }
     } else {
-      // if i clicked on burger again
-      // const mainText = document.getElementById("mainText");
-      // mainText.style.color = "blue";
-      // console.log('hide')
       dispatch(hideBurgerMenu());
     }
   };
   const burgerBlurHandler = () => {
     if (!clickedInBurgerModal) {
-      // const mainText = document.getElementById('mainText');
-      // mainText.style.color = 'green';
-      // console.log('burger blur')
       dispatch(toggleBlur('hide'));
       dispatch(hideBurgerMenu());
-      // dispatch(setSeveralClicksOnBurgerModal('no'));
     }
   };
 
@@ -112,14 +87,8 @@ function Header() {
     dispatch(toggleBlur(3));
     phoneButtonRef.current?.focus();
     phoneButtonDesktopRef.current?.focus();
-    // console.log('phone')
-    // if (!phoneModalOpened && !severalClicksInPhoneModal) {
     if (!phoneModalOpened) {
       dispatch(openPhoneModal());
-      // } else if (severalClicksInPhoneModal) {
-      //   dispatch(hidePhoneModal());
-      //   dispatch(toggleBlur('hide'));
-      //   dispatch(setSeveralClicksOnPhoneModal('no'));
     } else {
       dispatch(hidePhoneModal());
     }
@@ -128,25 +97,15 @@ function Header() {
     if (!clickedInPhoneModal) {
       dispatch(toggleBlur('hide'));
       dispatch(hidePhoneModal());
-      // dispatch(setSeveralClicksOnPhoneModal('no'));
     }
   };
 
   const findMobileHandler = () => {
-    // dispatch(toggleBlur(2));
     router.push({
       pathname: '/find',
-      // query: { keyword: 'came from search icon' },
     });
   };
 
-  // const [phoneIconHovered, setIconHovered] = useState(false)
-  // const onMouseOverPhoneIconHandler = () => {
-  //   setIconHovered(true)
-  // }
-  // const onMouseLeavePhoneIconHandler = () => {
-  //   setIconHovered(false)
-  // }
   return (
     <header>
       <nav className={style.navMobile}>
