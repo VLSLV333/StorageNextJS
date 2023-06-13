@@ -98,7 +98,7 @@ function Header() {
     if (!clickedInBurgerModal) {
       const mainText = document.getElementById('mainText');
       mainText.style.color = 'green';
-      console.log('burger blur')
+      // console.log('burger blur')
       dispatch(toggleBlur('hide'));
       dispatch(hideBurgerMenu());
       // dispatch(setSeveralClicksOnBurgerModal('no'));
