@@ -23,13 +23,13 @@ const burgerMenuSlice = createSlice({
         state.clickedInBurgerModal = false;
       }
     },
-    setSeveralClicksOnBurgerModal: (state, { payload }) => {
-      if (payload === "yes") {
-        state.severalClicksOnBurgerModal = true;
-      } else if (payload === "no") {
-        state.severalClicksOnBurgerModal = false;
-      }
-    },
+    // setSeveralClicksOnBurgerModal: (state, { payload }) => {
+    //   if (payload === "yes") {
+    //     state.severalClicksOnBurgerModal = true;
+    //   } else if (payload === "no") {
+    //     state.severalClicksOnBurgerModal = false;
+    //   }
+    // },
   },
 });
 
@@ -37,6 +37,6 @@ export const {
   showBurgerMenu,
   hideBurgerMenu,
   setClickedInBurgerModal,
-  setSeveralClicksOnBurgerModal,
+  // setSeveralClicksOnBurgerModal,
 } = burgerMenuSlice.actions;
 export default burgerMenuSlice.reducer;

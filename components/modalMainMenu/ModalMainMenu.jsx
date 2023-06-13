@@ -32,7 +32,7 @@ export default function ModalMeinMenu() {
   const linkClickHandler = () => {
     dispatch(hideBurgerMenu());
     dispatch(toggleBlur('hide'));
-    dispatch(setSeveralClicksOnBurgerModal('no'));
+    // dispatch(setSeveralClicksOnBurgerModal('no'));
   };
 
   return (

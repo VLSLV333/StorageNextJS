@@ -46,9 +46,9 @@ function Header() {
   const clickedInBurgerModal = useSelector(
     (state) => state.burgerMenu.clickedInBurgerModal
   );
-  const severalClicksInBurgerModal = useSelector(
-    (state) => state.burgerMenu.severalClicksOnBurgerModal
-  );
+  // const severalClicksInBurgerModal = useSelector(
+  //   (state) => state.burgerMenu.severalClicksOnBurgerModal
+  // );
 
   const phoneModalOpened = useSelector(
     (state) => state.phoneModal.showPhoneModal
@@ -78,13 +78,23 @@ function Header() {
 
   const burgerHandler = () => {
     dispatch(toggleBlur(1));
-    if (!burgerMenuOpened && !severalClicksInBurgerModal) {
+    // if (!burgerMenuOpened && !severalClicksInBurgerModal) {
+    if (!burgerMenuOpened ) {
+      const mainText = document.getElementById("mainText");
+      mainText.style.color = "green";
+      console.log('show')
       dispatch(showBurgerMenu());
-    } else if (severalClicksInBurgerModal) {
-      dispatch(hideBurgerMenu());
-      dispatch(toggleBlur('hide'));
-      dispatch(setSeveralClicksOnBurgerModal('no'));
-    } else {
+    } 
+    // else if (severalClicksInBurgerModal) {
+    //   dispatch(hideBurgerMenu());
+    //   dispatch(toggleBlur('hide'));
+      // dispatch(setSeveralClicksOnBurgerModal('no'));
+    // }
+     else {
+      // if i clicked on burger again
+      // const mainText = document.getElementById("mainText");
+      // mainText.style.color = "blue";
+      // console.log('hide')
       dispatch(hideBurgerMenu());
     }
   };
@@ -92,7 +102,7 @@ function Header() {
     if (!clickedInBurgerModal) {
       dispatch(toggleBlur('hide'));
       dispatch(hideBurgerMenu());
-      dispatch(setSeveralClicksOnBurgerModal('no'));
+      // dispatch(setSeveralClicksOnBurgerModal('no'));
     }
   };
 

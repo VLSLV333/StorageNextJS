@@ -20,7 +20,9 @@ function useOutsideClick(ref) {
       if (ref.current && ref.current.contains(event.target)) {
         if (ref.current.id === "burger") {
           dispatch(setClickedInBurgerModal("yes"));
-          dispatch(setSeveralClicksOnBurgerModal("yes"));
+          // dispatch(setSeveralClicksOnBurgerModal("yes"));
+          mainText.style.color = "blue";
+          console.log('inside')
         }
         if (ref.current.id === "phone") {
           dispatch(setClickedInPhoneModal("yes"));
