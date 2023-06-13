@@ -16,7 +16,7 @@ import {
 import {
   openPhoneModal,
   hidePhoneModal,
-  setSeveralClicksOnPhoneModal,
+  // setSeveralClicksOnPhoneModal,
 } from '@/store/phoneModalSlice';
 
 import Burger from './vectors/burger/Burger';
@@ -56,9 +56,9 @@ function Header() {
   const clickedInPhoneModal = useSelector(
     (state) => state.phoneModal.clickedInPhoneModal
   );
-  const severalClicksInPhoneModal = useSelector(
-    (state) => state.phoneModal.severalClicksOnPhoneModal
-  );
+  // const severalClicksInPhoneModal = useSelector(
+  //   (state) => state.phoneModal.severalClicksOnPhoneModal
+  // );
 
   useEffect(() => {
     // console.log('burger effect')
@@ -109,12 +109,15 @@ function Header() {
 
   const phoneMobileHandler = () => {
     dispatch(toggleBlur(3));
-    if (!phoneModalOpened && !severalClicksInPhoneModal) {
+    phoneButtonRef.current?.focus();
+    phoneButtonDesktopRef.current?.focus();
+    // if (!phoneModalOpened && !severalClicksInPhoneModal) {
+    if (!phoneModalOpened) {
       dispatch(openPhoneModal());
-    } else if (severalClicksInPhoneModal) {
-      dispatch(hidePhoneModal());
-      dispatch(toggleBlur('hide'));
-      dispatch(setSeveralClicksOnPhoneModal('no'));
+      // } else if (severalClicksInPhoneModal) {
+      //   dispatch(hidePhoneModal());
+      //   dispatch(toggleBlur('hide'));
+      //   dispatch(setSeveralClicksOnPhoneModal('no'));
     } else {
       dispatch(hidePhoneModal());
     }
@@ -123,7 +126,7 @@ function Header() {
     if (!clickedInPhoneModal) {
       dispatch(toggleBlur('hide'));
       dispatch(hidePhoneModal());
-      dispatch(setSeveralClicksOnPhoneModal('no'));
+      // dispatch(setSeveralClicksOnPhoneModal('no'));
     }
   };
 

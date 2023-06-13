@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 // import { setClickedInModal } from "../store/findModalMobileSlice";
 import {
   setClickedInPhoneModal,
-  setSeveralClicksOnPhoneModal,
+  // setSeveralClicksOnPhoneModal,
 } from "@/store/phoneModalSlice";
 import {
   setClickedInBurgerModal,
@@ -22,15 +22,15 @@ function useOutsideClick(ref) {
           dispatch(setClickedInBurgerModal("yes"));
           // dispatch(setSeveralClicksOnBurgerModal("yes"));
           mainText.style.color = "blue";
-          console.log('inside')
+          // console.log('inside')
         }
         if (ref.current.id === "phone") {
           dispatch(setClickedInPhoneModal("yes"));
-          dispatch(setSeveralClicksOnPhoneModal("yes"));
+          // dispatch(setSeveralClicksOnPhoneModal("yes"));
         }
         // dispatch(setClickedInModal("yes"));
       } else {
-        console.log("out");
+        // console.log("out");
         mainText.style.color = "red";
         // dispatch(setClickedInModal("no"));
         dispatch(setClickedInPhoneModal("no"));

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   showPhoneModal: false,
   clickedInPhoneModal: false,
-  severalClicksOnPhoneModal: false,
+  // severalClicksOnPhoneModal: false,
 };
 
 const phoneModalMobileSlice = createSlice({
@@ -23,13 +23,13 @@ const phoneModalMobileSlice = createSlice({
         state.clickedInPhoneModal = false;
       }
     },
-    setSeveralClicksOnPhoneModal: (state, { payload }) => {
-      if (payload === "yes") {
-        state.severalClicksOnPhoneModal = true;
-      } else if (payload === "no") {
-        state.severalClicksOnPhoneModal = false;
-      }
-    },
+    // setSeveralClicksOnPhoneModal: (state, { payload }) => {
+    //   if (payload === "yes") {
+    //     state.severalClicksOnPhoneModal = true;
+    //   } else if (payload === "no") {
+    //     state.severalClicksOnPhoneModal = false;
+    //   }
+    // },
   },
 });
 
@@ -37,6 +37,6 @@ export const {
   openPhoneModal,
   hidePhoneModal,
   setClickedInPhoneModal,
-  setSeveralClicksOnPhoneModal,
+  // setSeveralClicksOnPhoneModal,
 } = phoneModalMobileSlice.actions;
 export default phoneModalMobileSlice.reducer;

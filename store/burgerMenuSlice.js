@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   openBurgerMenu: false,
   clickedInBurgerModal: false,
-  severalClicksOnBurgerModal: false,
+  // severalClicksOnBurgerModal: false,
 };
 
 const burgerMenuSlice = createSlice({
