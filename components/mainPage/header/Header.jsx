@@ -80,9 +80,6 @@ function Header() {
     dispatch(toggleBlur(1));
     // if (!burgerMenuOpened && !severalClicksInBurgerModal) {
     if (!burgerMenuOpened) {
-      const mainText = document.getElementById('mainText');
-      mainText.style.color = 'green';
-      // console.log('show')
       dispatch(showBurgerMenu());
     // else if (severalClicksInBurgerModal) {
     //   dispatch(hideBurgerMenu());
@@ -99,6 +96,9 @@ function Header() {
   };
   const burgerBlurHandler = () => {
     if (!clickedInBurgerModal) {
+      const mainText = document.getElementById('mainText');
+      mainText.style.color = 'green';
+      console.log('burger blur')
       dispatch(toggleBlur('hide'));
       dispatch(hideBurgerMenu());
       // dispatch(setSeveralClicksOnBurgerModal('no'));
