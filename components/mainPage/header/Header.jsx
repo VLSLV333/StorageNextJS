@@ -64,8 +64,8 @@ function Header() {
     // console.log('burger effect')
     if (clickedInBurgerModal === false) {
       // console.log('burger effect true')
-      burgerButtonRef.current?.focus();
       burgerButtonDesktopRef.current?.focus();
+      burgerButtonRef.current?.focus();
     }
   }, [clickedInBurgerModal]);
 
@@ -79,6 +79,8 @@ function Header() {
   const burgerHandler = () => {
     dispatch(toggleBlur(1));
     // if (!burgerMenuOpened && !severalClicksInBurgerModal) {
+    burgerButtonDesktopRef.current?.focus();
+    burgerButtonRef.current?.focus();
     if (!burgerMenuOpened) {
       dispatch(showBurgerMenu());
     // else if (severalClicksInBurgerModal) {

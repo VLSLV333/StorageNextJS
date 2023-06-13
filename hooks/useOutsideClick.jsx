@@ -8,7 +8,7 @@ import {
 } from "@/store/phoneModalSlice";
 import {
   setClickedInBurgerModal,
-  setSeveralClicksOnBurgerModal,
+  // setSeveralClicksOnBurgerModal,
 } from "@/store/burgerMenuSlice";
 
 function useOutsideClick(ref) {
