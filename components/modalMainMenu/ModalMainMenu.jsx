@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { toggleBlur } from '@/store/pageBlurSlice';
 import {
   hideBurgerMenu,
-  setSeveralClicksOnBurgerModal,
+  // setSeveralClicksOnBurgerModal,
 } from '@/store/burgerMenuSlice';
 
 import useOutsideClick from '@/hooks/useOutsideClick';

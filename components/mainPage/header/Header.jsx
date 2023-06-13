@@ -10,7 +10,7 @@ import { toggleBlur } from '../../../store/pageBlurSlice';
 import {
   showBurgerMenu,
   hideBurgerMenu,
-  setSeveralClicksOnBurgerModal,
+  // setSeveralClicksOnBurgerModal,
 } from '../../../store/burgerMenuSlice';
 // import { openFindModal, hideFindModal } from '@/store/findModalMobileSlice';
 import {
@@ -79,18 +79,17 @@ function Header() {
   const burgerHandler = () => {
     dispatch(toggleBlur(1));
     // if (!burgerMenuOpened && !severalClicksInBurgerModal) {
-    if (!burgerMenuOpened ) {
-      const mainText = document.getElementById("mainText");
-      mainText.style.color = "green";
-      console.log('show')
+    if (!burgerMenuOpened) {
+      const mainText = document.getElementById('mainText');
+      mainText.style.color = 'green';
+      // console.log('show')
       dispatch(showBurgerMenu());
-    } 
     // else if (severalClicksInBurgerModal) {
     //   dispatch(hideBurgerMenu());
     //   dispatch(toggleBlur('hide'));
       // dispatch(setSeveralClicksOnBurgerModal('no'));
     // }
-     else {
+    } else {
       // if i clicked on burger again
       // const mainText = document.getElementById("mainText");
       // mainText.style.color = "blue";
