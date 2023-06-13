@@ -81,6 +81,7 @@ function Header() {
     // if (!burgerMenuOpened && !severalClicksInBurgerModal) {
     burgerButtonDesktopRef.current?.focus();
     burgerButtonRef.current?.focus();
+    // console.log('burger')
     if (!burgerMenuOpened) {
       dispatch(showBurgerMenu());
     // else if (severalClicksInBurgerModal) {
@@ -98,8 +99,8 @@ function Header() {
   };
   const burgerBlurHandler = () => {
     if (!clickedInBurgerModal) {
-      const mainText = document.getElementById('mainText');
-      mainText.style.color = 'green';
+      // const mainText = document.getElementById('mainText');
+      // mainText.style.color = 'green';
       // console.log('burger blur')
       dispatch(toggleBlur('hide'));
       dispatch(hideBurgerMenu());
@@ -111,6 +112,7 @@ function Header() {
     dispatch(toggleBlur(3));
     phoneButtonRef.current?.focus();
     phoneButtonDesktopRef.current?.focus();
+    // console.log('phone')
     // if (!phoneModalOpened && !severalClicksInPhoneModal) {
     if (!phoneModalOpened) {
       dispatch(openPhoneModal());

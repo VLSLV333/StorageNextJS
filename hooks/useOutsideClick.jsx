@@ -13,7 +13,7 @@ import {
 
 function useOutsideClick(ref) {
   const body = document.getElementById("body");
-  const mainText = document.getElementById("mainText");
+  // const mainText = document.getElementById("mainText");
   const dispatch = useDispatch();
   useEffect(() => {
     function handleClickOutside(event) {
@@ -21,7 +21,7 @@ function useOutsideClick(ref) {
         if (ref.current.id === "burger") {
           dispatch(setClickedInBurgerModal("yes"));
           // dispatch(setSeveralClicksOnBurgerModal("yes"));
-          mainText.style.color = "blue";
+          // mainText.style.color = "blue";
           // console.log('inside')
         }
         if (ref.current.id === "phone") {
@@ -31,7 +31,7 @@ function useOutsideClick(ref) {
         // dispatch(setClickedInModal("yes"));
       } else {
         // console.log("out");
-        mainText.style.color = "red";
+        // mainText.style.color = "red";
         // dispatch(setClickedInModal("no"));
         dispatch(setClickedInPhoneModal("no"));
         dispatch(setClickedInBurgerModal("no"));
